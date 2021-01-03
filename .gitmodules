@@ -1,0 +1,3 @@
+[submodule "libex"]
+	path = libex
+	url = https://github.com/deepkh/libex.git
