@@ -16,3 +16,14 @@ if [ -z "${HAVE_GOCOMPILER}" ];then
 	export HAVE_GOCOMPILER=1
 fi
 
+if [ -z "${HAVE_PROTOBUF}" ];then
+	export HAVE_PROTOBUF=1
+fi
+
+if [ -z "${HAVE_LIB_PROTOBUF}" ];then
+	export HAVE_LIB_PROTOBUF=1
+fi
+
+if [ -z "${HAVE_PROTOCGENGO}" ];then
+	export HAVE_PROTOCGENGO=1
+fi

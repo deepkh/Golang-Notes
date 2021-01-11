@@ -65,6 +65,52 @@
 
 ## [陣列 (Array) 和切片 (Slice)](https://michaelchen.tech/golang-programming/array-slice/)
 
+```golang
+package main
+import "fmt"
+
+type Point struct {
+	x float64
+	y float64
+}
+
+func PassSliceByReference(slice  []Point) {
+	fmt.Printf("%v %v\n", len(slice ), slice);
+}
+
+func PassSliceWithPointerByReference(slice []*Point) {
+	fmt.Printf("%v %v\n", len(slice ), slice);
+}
+
+func PassArrayByPoint(parray *[1]Point) {
+	fmt.Printf("%v %v\n", len(parray), parray);
+}
+
+func main() {
+	slice := []Point {
+		{1, 2}, {3,4},
+	};
+	slice = append(slice, Point{1,2});
+	//slice[1:2] is meaning i=1 && i < 2
+	slice = append(slice, slice[1:2]...);
+	PassSliceByReference(slice);
+	
+	slice_with_pointer := []*Point {
+		{1, 2},
+	};
+	slice_with_pointer[0] = &Point{3,4};
+	PassSliceWithPointerByReference(slice_with_pointer );
+
+	//Array need to specified the length of entity 
+	array := [1]Point {
+		{1, 2},
+	};
+	PassArrayByPoint(&array);
+}
+```
+
+-------------------------------------------------
+
 ## [向量 (Vector) 和矩陣 (Matrix)](https://michaelchen.tech/golang-cookbook/vector-matrix/)
 
 -------------------------------------------------
@@ -615,5 +661,9 @@ func main() {
 ## [Read/write from/to file](https://stackoverflow.com/a/9739903/11474144)
 
 -------------------------------------------------
+
+## [protobuf](https://developers.google.com/protocol-buffers/docs/gotutorial)
+
+
 
 
