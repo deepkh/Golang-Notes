@@ -10,9 +10,6 @@ import(
   "github.com/golang/protobuf/proto"
 )
 
-const (
-  filename = "addressbook.pb"
-)
 
 func CreateAddressBook(ab *pb.AddressBook, n int)  {
   var i int32;
@@ -82,7 +79,7 @@ func (p *AddressBookLoader) WriteToFile(filename string, ab *pb.AddressBook) err
   }
 
   if err = ioutil.WriteFile(filename, buf, 0644); err != nil {
-    log.Fatalln("Failed to write address book:", err)
+    log.Fatalln("Failed to write address book:", err);
   }
   return err;
 }
@@ -90,6 +87,14 @@ func (p *AddressBookLoader) WriteToFile(filename string, ab *pb.AddressBook) err
 func main() {
   ab := &pb.AddressBook{};
   loader := NewAddressBookLoader();
+  var filename string = "";
+
+  if len(os.Args) != 2 {
+    log.Printf("usage: %v filename\n", os.Args[0]);
+    return;
+  }
+
+  filename = os.Args[1];
 
   //read
   if err := loader.ReadFromFile(filename, ab); err != nil {
