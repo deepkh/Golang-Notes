@@ -18,11 +18,20 @@ SHELL=/bin/sh
 
 include $(GOTUTORIAL)/${MAKEFILE_DEP}
 
-all: $(GOTUTORIAL_PHONY) $(RUNTIME_BIN)/01_intro$(BINSUFFIX)
+all: $(GOTUTORIAL_PHONY) $(RUNTIME_BIN)/01_intro$(BINSUFFIX) $(RUNTIME_BIN)/02_protobuffer$(BINSUFFIX)
 
 $(RUNTIME_BIN)/01_intro$(BINSUFFIX):
 	@echo MAKE $@
 	cd src/01_intro/hello/ && $(GOBUILD) -o $@ hello.go
+
+src/02_protobuffer/addressbook/addressbook.pb.go: src/02_protobuffer/addressbook/addressbook.proto
+	cd src/02_protobuffer/addressbook/ && protoc -I=. --go_out=. addressbook.proto
+
+$(RUNTIME_BIN)/02_protobuffer$(BINSUFFIX): \
+	src/02_protobuffer/addressbook/addressbook.pb.go \
+	src/02_protobuffer/main/main.go
+	@echo MAKE $@
+	cd src/02_protobuffer/main/ && $(GOBUILD) -o $@ main
 
 test: test_greetings
 
@@ -30,5 +39,6 @@ test_greetings:
 	cd src/greetings && $(GOTESTV) ./...
 
 clean: $(GOTUTORIAL_PHONY_CLEAN)
-	$(RM) $(RUNTIME_BIN)/01_intro$(BINSUFFIX)
+	$(RM) $(RUNTIME_BIN)/01_*$(BINSUFFIX)
+	$(RM) $(RUNTIME_BIN)/02_*$(BINSUFFIX)
 
