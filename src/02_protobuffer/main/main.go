@@ -22,7 +22,7 @@ func CreateAddressBook(ab *pb.AddressBook, n int)  {
 
     for j:=0; j<3; j++ {
       person.Phones = append(person.Phones,
-        &pb.Person_PhoneNumber{Number: "12345678#"+strconv.Itoa(int(j)), Type: pb.Person_HOME},
+        &pb.Person_PhoneNumber{Number: "12345678#"+strconv.Itoa(int(j)), Type: pb.Person_PhoneType(j%3)},
       );
     }
 

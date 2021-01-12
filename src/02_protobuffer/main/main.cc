@@ -10,9 +10,9 @@ static void CreateAddressBook(addressbook::AddressBook *address_book) {
     person->set_id(i);
     *person->mutable_name() = string("John-")+ std::to_string(i);
     person->set_email(string("JohnMail-")+ std::to_string(i));
-    addressbook::Person::PhoneNumber* phone_number = person->add_phones();
     for (int j=0; j<3; j++) {
-      phone_number->set_number(string("JohnNumber-")+ std::to_string(i));
+      addressbook::Person::PhoneNumber* phone_number = person->add_phones();
+      phone_number->set_number(string("JohnNumber-")+ std::to_string(i) + std::to_string(j));
       phone_number->set_type(static_cast<addressbook::Person_PhoneType>(j%3));
     }
   }
