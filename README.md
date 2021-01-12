@@ -664,10 +664,14 @@ func main() {
 
 ## [protobuf](https://developers.google.com/protocol-buffers/docs/gotutorial)
 
-- Protocol Buffers  主要應用在不同程式語言的 RPC 上，透過描述檔 ```*.proto``` 描述傳送方與接收方的資料結構，再透過  protoc 去產生對映的 ```*.pb.go``` 或 ```*.pb.h``` 與 ```*.pb.cc```
+- Protocol Buffers  主要應用在不同程式語言的 RPC 上(當然 PB 也是可以拿來取代 JSON)，並透過描述檔 ```*.proto``` 描述傳送方與接收方的資料結構，再透過 protoc code generator 去產生對映的 ```*.pb.go``` 或 ```*.pb.h``` 與 ```*.pb.cc```，如此就不需再人工 
+	* ```定義 golang 的資料結構```
+	* ```撰寫 golang 的 unmarshal/marshal```
+	* ```定義 C++ 的資料結構```
+	* ```撰寫 C++ 的 unmarshal/marshal```
 - Golang 需安裝 protoc 與 protoc-gen-go
 - C++ 則需安裝 protoc 與 libprotobuf(libprotobuf.so)
-- 上述工具在 source source.sh && make 都會自動安裝
+- 上述工具在 source source.sh && make 後都會自動安裝
 
 -------------------------------------------------
 
