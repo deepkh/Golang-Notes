@@ -16,12 +16,17 @@ if [ -z "${HAVE_GOCOMPILER}" ];then
 	export HAVE_GOCOMPILER=1
 fi
 
-if [ -z "${HAVE_PROTOBUF}" ];then
-	export HAVE_PROTOBUF=1
-fi
+#GPRC already included protobuf 3.13.0
+#if [ -z "${HAVE_PROTOBUF}" ];then
+#	export HAVE_PROTOBUF=1
+#fi
 
-if [ -z "${HAVE_LIB_PROTOBUF}" ];then
-	export HAVE_LIB_PROTOBUF=1
+#if [ -z "${HAVE_LIB_PROTOBUF}" ];then
+#	export HAVE_LIB_PROTOBUF=1
+#fi
+
+if [ -z "${HAVE_GRPC}" ];then
+	export HAVE_GRPC=1
 fi
 
 if [ -z "${HAVE_PROTOCGENGO}" ];then

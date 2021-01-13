@@ -39,6 +39,7 @@ static void InitDefaultsscc_info_AddressBook_addressbook_2eproto() {
     new (ptr) ::addressbook::AddressBook();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
+  ::addressbook::AddressBook::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_AddressBook_addressbook_2eproto =
@@ -53,6 +54,7 @@ static void InitDefaultsscc_info_Person_addressbook_2eproto() {
     new (ptr) ::addressbook::Person();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
+  ::addressbook::Person::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_Person_addressbook_2eproto =
@@ -68,6 +70,7 @@ static void InitDefaultsscc_info_Person_PhoneNumber_addressbook_2eproto() {
     new (ptr) ::addressbook::Person_PhoneNumber();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
+  ::addressbook::Person_PhoneNumber::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Person_PhoneNumber_addressbook_2eproto =
@@ -173,6 +176,8 @@ constexpr int Person::PhoneType_ARRAYSIZE;
 
 // ===================================================================
 
+void Person_PhoneNumber::InitAsDefaultInstance() {
+}
 class Person_PhoneNumber::_Internal {
  public:
 };
@@ -188,7 +193,7 @@ Person_PhoneNumber::Person_PhoneNumber(const Person_PhoneNumber& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   number_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_number().empty()) {
-    number_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_number(), 
+    number_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_number(),
       GetArena());
   }
   type_ = from.type_;
@@ -233,13 +238,14 @@ void Person_PhoneNumber::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  number_.ClearToEmpty();
+  number_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   type_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* Person_PhoneNumber::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -407,6 +413,10 @@ void Person_PhoneNumber::InternalSwap(Person_PhoneNumber* other) {
 
 // ===================================================================
 
+void Person::InitAsDefaultInstance() {
+  ::addressbook::_Person_default_instance_._instance.get_mutable()->last_updated_ = const_cast< PROTOBUF_NAMESPACE_ID::Timestamp*>(
+      PROTOBUF_NAMESPACE_ID::Timestamp::internal_default_instance());
+}
 class Person::_Internal {
  public:
   static const PROTOBUF_NAMESPACE_ID::Timestamp& last_updated(const Person* msg);
@@ -435,17 +445,17 @@ Person::Person(const Person& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_name().empty()) {
-    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
+    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
       GetArena());
   }
   email_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_email().empty()) {
-    email_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_email(), 
+    email_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_email(),
       GetArena());
   }
   hobbys_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_hobbys().empty()) {
-    hobbys_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_hobbys(), 
+    hobbys_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_hobbys(),
       GetArena());
   }
   if (from._internal_has_last_updated()) {
@@ -462,9 +472,8 @@ void Person::SharedCtor() {
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   email_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   hobbys_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-      reinterpret_cast<char*>(&last_updated_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&id_) -
+  ::memset(&last_updated_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&id_) -
       reinterpret_cast<char*>(&last_updated_)) + sizeof(id_));
 }
 
@@ -504,9 +513,9 @@ void Person::Clear() {
   (void) cached_has_bits;
 
   phones_.Clear();
-  name_.ClearToEmpty();
-  email_.ClearToEmpty();
-  hobbys_.ClearToEmpty();
+  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  email_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  hobbys_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   if (GetArena() == nullptr && last_updated_ != nullptr) {
     delete last_updated_;
   }
@@ -517,6 +526,7 @@ void Person::Clear() {
 
 const char* Person::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -802,6 +812,8 @@ void Person::InternalSwap(Person* other) {
 
 // ===================================================================
 
+void AddressBook::InitAsDefaultInstance() {
+}
 class AddressBook::_Internal {
  public:
 };
@@ -861,6 +873,7 @@ void AddressBook::Clear() {
 
 const char* AddressBook::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
