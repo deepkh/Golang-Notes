@@ -1,5 +1,5 @@
 syntax = "proto3";
-package addressbook;
+package pb;
 
 //option go_package = "github.com/protocolbuffers/protobuf/examples/go/tutorialpb";
 import "google/protobuf/timestamp.proto";

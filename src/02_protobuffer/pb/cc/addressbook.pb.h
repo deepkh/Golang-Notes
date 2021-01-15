@@ -56,7 +56,7 @@ struct TableStruct_addressbook_2eproto {
   static const ::PROTOBUF_NAMESPACE_ID::uint32 offsets[];
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_addressbook_2eproto;
-namespace addressbook {
+namespace pb {
 class AddressBook;
 class AddressBookDefaultTypeInternal;
 extern AddressBookDefaultTypeInternal _AddressBook_default_instance_;
@@ -66,13 +66,13 @@ extern PersonDefaultTypeInternal _Person_default_instance_;
 class Person_PhoneNumber;
 class Person_PhoneNumberDefaultTypeInternal;
 extern Person_PhoneNumberDefaultTypeInternal _Person_PhoneNumber_default_instance_;
-}  // namespace addressbook
+}  // namespace pb
 PROTOBUF_NAMESPACE_OPEN
-template<> ::addressbook::AddressBook* Arena::CreateMaybeMessage<::addressbook::AddressBook>(Arena*);
-template<> ::addressbook::Person* Arena::CreateMaybeMessage<::addressbook::Person>(Arena*);
-template<> ::addressbook::Person_PhoneNumber* Arena::CreateMaybeMessage<::addressbook::Person_PhoneNumber>(Arena*);
+template<> ::pb::AddressBook* Arena::CreateMaybeMessage<::pb::AddressBook>(Arena*);
+template<> ::pb::Person* Arena::CreateMaybeMessage<::pb::Person>(Arena*);
+template<> ::pb::Person_PhoneNumber* Arena::CreateMaybeMessage<::pb::Person_PhoneNumber>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
-namespace addressbook {
+namespace pb {
 
 enum Person_PhoneType : int {
   Person_PhoneType_MOBILE = 0,
@@ -103,7 +103,7 @@ inline bool Person_PhoneType_Parse(
 // ===================================================================
 
 class Person_PhoneNumber PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:addressbook.Person.PhoneNumber) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:pb.Person.PhoneNumber) */ {
  public:
   inline Person_PhoneNumber() : Person_PhoneNumber(nullptr) {}
   virtual ~Person_PhoneNumber();
@@ -192,7 +192,7 @@ class Person_PhoneNumber PROTOBUF_FINAL :
   void InternalSwap(Person_PhoneNumber* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "addressbook.Person.PhoneNumber";
+    return "pb.Person.PhoneNumber";
   }
   protected:
   explicit Person_PhoneNumber(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -234,16 +234,16 @@ class Person_PhoneNumber PROTOBUF_FINAL :
   std::string* _internal_mutable_number();
   public:
 
-  // .addressbook.Person.PhoneType type = 2;
+  // .pb.Person.PhoneType type = 2;
   void clear_type();
-  ::addressbook::Person_PhoneType type() const;
-  void set_type(::addressbook::Person_PhoneType value);
+  ::pb::Person_PhoneType type() const;
+  void set_type(::pb::Person_PhoneType value);
   private:
-  ::addressbook::Person_PhoneType _internal_type() const;
-  void _internal_set_type(::addressbook::Person_PhoneType value);
+  ::pb::Person_PhoneType _internal_type() const;
+  void _internal_set_type(::pb::Person_PhoneType value);
   public:
 
-  // @@protoc_insertion_point(class_scope:addressbook.Person.PhoneNumber)
+  // @@protoc_insertion_point(class_scope:pb.Person.PhoneNumber)
  private:
   class _Internal;
 
@@ -258,7 +258,7 @@ class Person_PhoneNumber PROTOBUF_FINAL :
 // -------------------------------------------------------------------
 
 class Person PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:addressbook.Person) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:pb.Person) */ {
  public:
   inline Person() : Person(nullptr) {}
   virtual ~Person();
@@ -347,7 +347,7 @@ class Person PROTOBUF_FINAL :
   void InternalSwap(Person* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "addressbook.Person";
+    return "pb.Person";
   }
   protected:
   explicit Person(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -411,22 +411,22 @@ class Person PROTOBUF_FINAL :
     kLastUpdatedFieldNumber = 6,
     kIdFieldNumber = 2,
   };
-  // repeated .addressbook.Person.PhoneNumber phones = 4;
+  // repeated .pb.Person.PhoneNumber phones = 4;
   int phones_size() const;
   private:
   int _internal_phones_size() const;
   public:
   void clear_phones();
-  ::addressbook::Person_PhoneNumber* mutable_phones(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::addressbook::Person_PhoneNumber >*
+  ::pb::Person_PhoneNumber* mutable_phones(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::pb::Person_PhoneNumber >*
       mutable_phones();
   private:
-  const ::addressbook::Person_PhoneNumber& _internal_phones(int index) const;
-  ::addressbook::Person_PhoneNumber* _internal_add_phones();
+  const ::pb::Person_PhoneNumber& _internal_phones(int index) const;
+  ::pb::Person_PhoneNumber* _internal_add_phones();
   public:
-  const ::addressbook::Person_PhoneNumber& phones(int index) const;
-  ::addressbook::Person_PhoneNumber* add_phones();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::addressbook::Person_PhoneNumber >&
+  const ::pb::Person_PhoneNumber& phones(int index) const;
+  ::pb::Person_PhoneNumber* add_phones();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::pb::Person_PhoneNumber >&
       phones() const;
 
   // string name = 1;
@@ -504,14 +504,14 @@ class Person PROTOBUF_FINAL :
   void _internal_set_id(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // @@protoc_insertion_point(class_scope:addressbook.Person)
+  // @@protoc_insertion_point(class_scope:pb.Person)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::addressbook::Person_PhoneNumber > phones_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::pb::Person_PhoneNumber > phones_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr email_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr hobbys_;
@@ -523,7 +523,7 @@ class Person PROTOBUF_FINAL :
 // -------------------------------------------------------------------
 
 class AddressBook PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:addressbook.AddressBook) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:pb.AddressBook) */ {
  public:
   inline AddressBook() : AddressBook(nullptr) {}
   virtual ~AddressBook();
@@ -612,7 +612,7 @@ class AddressBook PROTOBUF_FINAL :
   void InternalSwap(AddressBook* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "addressbook.AddressBook";
+    return "pb.AddressBook";
   }
   protected:
   explicit AddressBook(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -637,32 +637,32 @@ class AddressBook PROTOBUF_FINAL :
   enum : int {
     kPersonFieldNumber = 1,
   };
-  // repeated .addressbook.Person person = 1;
+  // repeated .pb.Person person = 1;
   int person_size() const;
   private:
   int _internal_person_size() const;
   public:
   void clear_person();
-  ::addressbook::Person* mutable_person(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::addressbook::Person >*
+  ::pb::Person* mutable_person(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::pb::Person >*
       mutable_person();
   private:
-  const ::addressbook::Person& _internal_person(int index) const;
-  ::addressbook::Person* _internal_add_person();
+  const ::pb::Person& _internal_person(int index) const;
+  ::pb::Person* _internal_add_person();
   public:
-  const ::addressbook::Person& person(int index) const;
-  ::addressbook::Person* add_person();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::addressbook::Person >&
+  const ::pb::Person& person(int index) const;
+  ::pb::Person* add_person();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::pb::Person >&
       person() const;
 
-  // @@protoc_insertion_point(class_scope:addressbook.AddressBook)
+  // @@protoc_insertion_point(class_scope:pb.AddressBook)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::addressbook::Person > person_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::pb::Person > person_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_addressbook_2eproto;
 };
@@ -682,15 +682,15 @@ inline void Person_PhoneNumber::clear_number() {
   number_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 inline const std::string& Person_PhoneNumber::number() const {
-  // @@protoc_insertion_point(field_get:addressbook.Person.PhoneNumber.number)
+  // @@protoc_insertion_point(field_get:pb.Person.PhoneNumber.number)
   return _internal_number();
 }
 inline void Person_PhoneNumber::set_number(const std::string& value) {
   _internal_set_number(value);
-  // @@protoc_insertion_point(field_set:addressbook.Person.PhoneNumber.number)
+  // @@protoc_insertion_point(field_set:pb.Person.PhoneNumber.number)
 }
 inline std::string* Person_PhoneNumber::mutable_number() {
-  // @@protoc_insertion_point(field_mutable:addressbook.Person.PhoneNumber.number)
+  // @@protoc_insertion_point(field_mutable:pb.Person.PhoneNumber.number)
   return _internal_mutable_number();
 }
 inline const std::string& Person_PhoneNumber::_internal_number() const {
@@ -704,28 +704,28 @@ inline void Person_PhoneNumber::set_number(std::string&& value) {
   
   number_.Set(
     &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:addressbook.Person.PhoneNumber.number)
+  // @@protoc_insertion_point(field_set_rvalue:pb.Person.PhoneNumber.number)
 }
 inline void Person_PhoneNumber::set_number(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   number_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
               GetArena());
-  // @@protoc_insertion_point(field_set_char:addressbook.Person.PhoneNumber.number)
+  // @@protoc_insertion_point(field_set_char:pb.Person.PhoneNumber.number)
 }
 inline void Person_PhoneNumber::set_number(const char* value,
     size_t size) {
   
   number_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:addressbook.Person.PhoneNumber.number)
+  // @@protoc_insertion_point(field_set_pointer:pb.Person.PhoneNumber.number)
 }
 inline std::string* Person_PhoneNumber::_internal_mutable_number() {
   
   return number_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 inline std::string* Person_PhoneNumber::release_number() {
-  // @@protoc_insertion_point(field_release:addressbook.Person.PhoneNumber.number)
+  // @@protoc_insertion_point(field_release:pb.Person.PhoneNumber.number)
   return number_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 inline void Person_PhoneNumber::set_allocated_number(std::string* number) {
@@ -736,27 +736,27 @@ inline void Person_PhoneNumber::set_allocated_number(std::string* number) {
   }
   number_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), number,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:addressbook.Person.PhoneNumber.number)
+  // @@protoc_insertion_point(field_set_allocated:pb.Person.PhoneNumber.number)
 }
 
-// .addressbook.Person.PhoneType type = 2;
+// .pb.Person.PhoneType type = 2;
 inline void Person_PhoneNumber::clear_type() {
   type_ = 0;
 }
-inline ::addressbook::Person_PhoneType Person_PhoneNumber::_internal_type() const {
-  return static_cast< ::addressbook::Person_PhoneType >(type_);
+inline ::pb::Person_PhoneType Person_PhoneNumber::_internal_type() const {
+  return static_cast< ::pb::Person_PhoneType >(type_);
 }
-inline ::addressbook::Person_PhoneType Person_PhoneNumber::type() const {
-  // @@protoc_insertion_point(field_get:addressbook.Person.PhoneNumber.type)
+inline ::pb::Person_PhoneType Person_PhoneNumber::type() const {
+  // @@protoc_insertion_point(field_get:pb.Person.PhoneNumber.type)
   return _internal_type();
 }
-inline void Person_PhoneNumber::_internal_set_type(::addressbook::Person_PhoneType value) {
+inline void Person_PhoneNumber::_internal_set_type(::pb::Person_PhoneType value) {
   
   type_ = value;
 }
-inline void Person_PhoneNumber::set_type(::addressbook::Person_PhoneType value) {
+inline void Person_PhoneNumber::set_type(::pb::Person_PhoneType value) {
   _internal_set_type(value);
-  // @@protoc_insertion_point(field_set:addressbook.Person.PhoneNumber.type)
+  // @@protoc_insertion_point(field_set:pb.Person.PhoneNumber.type)
 }
 
 // -------------------------------------------------------------------
@@ -768,15 +768,15 @@ inline void Person::clear_name() {
   name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 inline const std::string& Person::name() const {
-  // @@protoc_insertion_point(field_get:addressbook.Person.name)
+  // @@protoc_insertion_point(field_get:pb.Person.name)
   return _internal_name();
 }
 inline void Person::set_name(const std::string& value) {
   _internal_set_name(value);
-  // @@protoc_insertion_point(field_set:addressbook.Person.name)
+  // @@protoc_insertion_point(field_set:pb.Person.name)
 }
 inline std::string* Person::mutable_name() {
-  // @@protoc_insertion_point(field_mutable:addressbook.Person.name)
+  // @@protoc_insertion_point(field_mutable:pb.Person.name)
   return _internal_mutable_name();
 }
 inline const std::string& Person::_internal_name() const {
@@ -790,28 +790,28 @@ inline void Person::set_name(std::string&& value) {
   
   name_.Set(
     &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:addressbook.Person.name)
+  // @@protoc_insertion_point(field_set_rvalue:pb.Person.name)
 }
 inline void Person::set_name(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
               GetArena());
-  // @@protoc_insertion_point(field_set_char:addressbook.Person.name)
+  // @@protoc_insertion_point(field_set_char:pb.Person.name)
 }
 inline void Person::set_name(const char* value,
     size_t size) {
   
   name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:addressbook.Person.name)
+  // @@protoc_insertion_point(field_set_pointer:pb.Person.name)
 }
 inline std::string* Person::_internal_mutable_name() {
   
   return name_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 inline std::string* Person::release_name() {
-  // @@protoc_insertion_point(field_release:addressbook.Person.name)
+  // @@protoc_insertion_point(field_release:pb.Person.name)
   return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 inline void Person::set_allocated_name(std::string* name) {
@@ -822,7 +822,7 @@ inline void Person::set_allocated_name(std::string* name) {
   }
   name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:addressbook.Person.name)
+  // @@protoc_insertion_point(field_set_allocated:pb.Person.name)
 }
 
 // int32 id = 2;
@@ -833,7 +833,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 Person::_internal_id() const {
   return id_;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 Person::id() const {
-  // @@protoc_insertion_point(field_get:addressbook.Person.id)
+  // @@protoc_insertion_point(field_get:pb.Person.id)
   return _internal_id();
 }
 inline void Person::_internal_set_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -842,7 +842,7 @@ inline void Person::_internal_set_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
 }
 inline void Person::set_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_id(value);
-  // @@protoc_insertion_point(field_set:addressbook.Person.id)
+  // @@protoc_insertion_point(field_set:pb.Person.id)
 }
 
 // string email = 3;
@@ -850,15 +850,15 @@ inline void Person::clear_email() {
   email_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 inline const std::string& Person::email() const {
-  // @@protoc_insertion_point(field_get:addressbook.Person.email)
+  // @@protoc_insertion_point(field_get:pb.Person.email)
   return _internal_email();
 }
 inline void Person::set_email(const std::string& value) {
   _internal_set_email(value);
-  // @@protoc_insertion_point(field_set:addressbook.Person.email)
+  // @@protoc_insertion_point(field_set:pb.Person.email)
 }
 inline std::string* Person::mutable_email() {
-  // @@protoc_insertion_point(field_mutable:addressbook.Person.email)
+  // @@protoc_insertion_point(field_mutable:pb.Person.email)
   return _internal_mutable_email();
 }
 inline const std::string& Person::_internal_email() const {
@@ -872,28 +872,28 @@ inline void Person::set_email(std::string&& value) {
   
   email_.Set(
     &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:addressbook.Person.email)
+  // @@protoc_insertion_point(field_set_rvalue:pb.Person.email)
 }
 inline void Person::set_email(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   email_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
               GetArena());
-  // @@protoc_insertion_point(field_set_char:addressbook.Person.email)
+  // @@protoc_insertion_point(field_set_char:pb.Person.email)
 }
 inline void Person::set_email(const char* value,
     size_t size) {
   
   email_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:addressbook.Person.email)
+  // @@protoc_insertion_point(field_set_pointer:pb.Person.email)
 }
 inline std::string* Person::_internal_mutable_email() {
   
   return email_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 inline std::string* Person::release_email() {
-  // @@protoc_insertion_point(field_release:addressbook.Person.email)
+  // @@protoc_insertion_point(field_release:pb.Person.email)
   return email_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 inline void Person::set_allocated_email(std::string* email) {
@@ -904,10 +904,10 @@ inline void Person::set_allocated_email(std::string* email) {
   }
   email_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), email,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:addressbook.Person.email)
+  // @@protoc_insertion_point(field_set_allocated:pb.Person.email)
 }
 
-// repeated .addressbook.Person.PhoneNumber phones = 4;
+// repeated .pb.Person.PhoneNumber phones = 4;
 inline int Person::_internal_phones_size() const {
   return phones_.size();
 }
@@ -917,32 +917,32 @@ inline int Person::phones_size() const {
 inline void Person::clear_phones() {
   phones_.Clear();
 }
-inline ::addressbook::Person_PhoneNumber* Person::mutable_phones(int index) {
-  // @@protoc_insertion_point(field_mutable:addressbook.Person.phones)
+inline ::pb::Person_PhoneNumber* Person::mutable_phones(int index) {
+  // @@protoc_insertion_point(field_mutable:pb.Person.phones)
   return phones_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::addressbook::Person_PhoneNumber >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::pb::Person_PhoneNumber >*
 Person::mutable_phones() {
-  // @@protoc_insertion_point(field_mutable_list:addressbook.Person.phones)
+  // @@protoc_insertion_point(field_mutable_list:pb.Person.phones)
   return &phones_;
 }
-inline const ::addressbook::Person_PhoneNumber& Person::_internal_phones(int index) const {
+inline const ::pb::Person_PhoneNumber& Person::_internal_phones(int index) const {
   return phones_.Get(index);
 }
-inline const ::addressbook::Person_PhoneNumber& Person::phones(int index) const {
-  // @@protoc_insertion_point(field_get:addressbook.Person.phones)
+inline const ::pb::Person_PhoneNumber& Person::phones(int index) const {
+  // @@protoc_insertion_point(field_get:pb.Person.phones)
   return _internal_phones(index);
 }
-inline ::addressbook::Person_PhoneNumber* Person::_internal_add_phones() {
+inline ::pb::Person_PhoneNumber* Person::_internal_add_phones() {
   return phones_.Add();
 }
-inline ::addressbook::Person_PhoneNumber* Person::add_phones() {
-  // @@protoc_insertion_point(field_add:addressbook.Person.phones)
+inline ::pb::Person_PhoneNumber* Person::add_phones() {
+  // @@protoc_insertion_point(field_add:pb.Person.phones)
   return _internal_add_phones();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::addressbook::Person_PhoneNumber >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::pb::Person_PhoneNumber >&
 Person::phones() const {
-  // @@protoc_insertion_point(field_list:addressbook.Person.phones)
+  // @@protoc_insertion_point(field_list:pb.Person.phones)
   return phones_;
 }
 
@@ -951,15 +951,15 @@ inline void Person::clear_hobbys() {
   hobbys_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 inline const std::string& Person::hobbys() const {
-  // @@protoc_insertion_point(field_get:addressbook.Person.hobbys)
+  // @@protoc_insertion_point(field_get:pb.Person.hobbys)
   return _internal_hobbys();
 }
 inline void Person::set_hobbys(const std::string& value) {
   _internal_set_hobbys(value);
-  // @@protoc_insertion_point(field_set:addressbook.Person.hobbys)
+  // @@protoc_insertion_point(field_set:pb.Person.hobbys)
 }
 inline std::string* Person::mutable_hobbys() {
-  // @@protoc_insertion_point(field_mutable:addressbook.Person.hobbys)
+  // @@protoc_insertion_point(field_mutable:pb.Person.hobbys)
   return _internal_mutable_hobbys();
 }
 inline const std::string& Person::_internal_hobbys() const {
@@ -973,28 +973,28 @@ inline void Person::set_hobbys(std::string&& value) {
   
   hobbys_.Set(
     &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:addressbook.Person.hobbys)
+  // @@protoc_insertion_point(field_set_rvalue:pb.Person.hobbys)
 }
 inline void Person::set_hobbys(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   hobbys_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
               GetArena());
-  // @@protoc_insertion_point(field_set_char:addressbook.Person.hobbys)
+  // @@protoc_insertion_point(field_set_char:pb.Person.hobbys)
 }
 inline void Person::set_hobbys(const char* value,
     size_t size) {
   
   hobbys_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:addressbook.Person.hobbys)
+  // @@protoc_insertion_point(field_set_pointer:pb.Person.hobbys)
 }
 inline std::string* Person::_internal_mutable_hobbys() {
   
   return hobbys_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 inline std::string* Person::release_hobbys() {
-  // @@protoc_insertion_point(field_release:addressbook.Person.hobbys)
+  // @@protoc_insertion_point(field_release:pb.Person.hobbys)
   return hobbys_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 inline void Person::set_allocated_hobbys(std::string* hobbys) {
@@ -1005,7 +1005,7 @@ inline void Person::set_allocated_hobbys(std::string* hobbys) {
   }
   hobbys_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), hobbys,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:addressbook.Person.hobbys)
+  // @@protoc_insertion_point(field_set_allocated:pb.Person.hobbys)
 }
 
 // .google.protobuf.Timestamp last_updated = 6;
@@ -1021,7 +1021,7 @@ inline const PROTOBUF_NAMESPACE_ID::Timestamp& Person::_internal_last_updated() 
       &PROTOBUF_NAMESPACE_ID::_Timestamp_default_instance_);
 }
 inline const PROTOBUF_NAMESPACE_ID::Timestamp& Person::last_updated() const {
-  // @@protoc_insertion_point(field_get:addressbook.Person.last_updated)
+  // @@protoc_insertion_point(field_get:pb.Person.last_updated)
   return _internal_last_updated();
 }
 inline void Person::unsafe_arena_set_allocated_last_updated(
@@ -1035,7 +1035,7 @@ inline void Person::unsafe_arena_set_allocated_last_updated(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:addressbook.Person.last_updated)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:pb.Person.last_updated)
 }
 inline PROTOBUF_NAMESPACE_ID::Timestamp* Person::release_last_updated() {
   
@@ -1047,7 +1047,7 @@ inline PROTOBUF_NAMESPACE_ID::Timestamp* Person::release_last_updated() {
   return temp;
 }
 inline PROTOBUF_NAMESPACE_ID::Timestamp* Person::unsafe_arena_release_last_updated() {
-  // @@protoc_insertion_point(field_release:addressbook.Person.last_updated)
+  // @@protoc_insertion_point(field_release:pb.Person.last_updated)
   
   PROTOBUF_NAMESPACE_ID::Timestamp* temp = last_updated_;
   last_updated_ = nullptr;
@@ -1062,7 +1062,7 @@ inline PROTOBUF_NAMESPACE_ID::Timestamp* Person::_internal_mutable_last_updated(
   return last_updated_;
 }
 inline PROTOBUF_NAMESPACE_ID::Timestamp* Person::mutable_last_updated() {
-  // @@protoc_insertion_point(field_mutable:addressbook.Person.last_updated)
+  // @@protoc_insertion_point(field_mutable:pb.Person.last_updated)
   return _internal_mutable_last_updated();
 }
 inline void Person::set_allocated_last_updated(PROTOBUF_NAMESPACE_ID::Timestamp* last_updated) {
@@ -1082,14 +1082,14 @@ inline void Person::set_allocated_last_updated(PROTOBUF_NAMESPACE_ID::Timestamp*
     
   }
   last_updated_ = last_updated;
-  // @@protoc_insertion_point(field_set_allocated:addressbook.Person.last_updated)
+  // @@protoc_insertion_point(field_set_allocated:pb.Person.last_updated)
 }
 
 // -------------------------------------------------------------------
 
 // AddressBook
 
-// repeated .addressbook.Person person = 1;
+// repeated .pb.Person person = 1;
 inline int AddressBook::_internal_person_size() const {
   return person_.size();
 }
@@ -1099,32 +1099,32 @@ inline int AddressBook::person_size() const {
 inline void AddressBook::clear_person() {
   person_.Clear();
 }
-inline ::addressbook::Person* AddressBook::mutable_person(int index) {
-  // @@protoc_insertion_point(field_mutable:addressbook.AddressBook.person)
+inline ::pb::Person* AddressBook::mutable_person(int index) {
+  // @@protoc_insertion_point(field_mutable:pb.AddressBook.person)
   return person_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::addressbook::Person >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::pb::Person >*
 AddressBook::mutable_person() {
-  // @@protoc_insertion_point(field_mutable_list:addressbook.AddressBook.person)
+  // @@protoc_insertion_point(field_mutable_list:pb.AddressBook.person)
   return &person_;
 }
-inline const ::addressbook::Person& AddressBook::_internal_person(int index) const {
+inline const ::pb::Person& AddressBook::_internal_person(int index) const {
   return person_.Get(index);
 }
-inline const ::addressbook::Person& AddressBook::person(int index) const {
-  // @@protoc_insertion_point(field_get:addressbook.AddressBook.person)
+inline const ::pb::Person& AddressBook::person(int index) const {
+  // @@protoc_insertion_point(field_get:pb.AddressBook.person)
   return _internal_person(index);
 }
-inline ::addressbook::Person* AddressBook::_internal_add_person() {
+inline ::pb::Person* AddressBook::_internal_add_person() {
   return person_.Add();
 }
-inline ::addressbook::Person* AddressBook::add_person() {
-  // @@protoc_insertion_point(field_add:addressbook.AddressBook.person)
+inline ::pb::Person* AddressBook::add_person() {
+  // @@protoc_insertion_point(field_add:pb.AddressBook.person)
   return _internal_add_person();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::addressbook::Person >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::pb::Person >&
 AddressBook::person() const {
-  // @@protoc_insertion_point(field_list:addressbook.AddressBook.person)
+  // @@protoc_insertion_point(field_list:pb.AddressBook.person)
   return person_;
 }
 
@@ -1138,14 +1138,14 @@ AddressBook::person() const {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace addressbook
+}  // namespace pb
 
 PROTOBUF_NAMESPACE_OPEN
 
-template <> struct is_proto_enum< ::addressbook::Person_PhoneType> : ::std::true_type {};
+template <> struct is_proto_enum< ::pb::Person_PhoneType> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::addressbook::Person_PhoneType>() {
-  return ::addressbook::Person_PhoneType_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::pb::Person_PhoneType>() {
+  return ::pb::Person_PhoneType_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

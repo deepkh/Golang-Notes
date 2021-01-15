@@ -2,14 +2,13 @@ package main
 
 import(
   _"fmt"
-  pb "addressbook"
+  "pb"
   "strconv"
   "io/ioutil"
   "log"
   "os"
   "github.com/golang/protobuf/proto"
 )
-
 
 func CreateAddressBook(ab *pb.AddressBook, n int)  {
   var i int32;
