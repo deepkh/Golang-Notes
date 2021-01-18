@@ -2,9 +2,9 @@ module main
 
 go 1.15
 
-replace protos => ../protos
+replace example.com/03_grpchello => ../protos
 
 require (
+	example.com/03_grpchello v0.0.0-00010101000000-000000000000 // indirect
 	google.golang.org/grpc v1.35.0 // indirect
-	protos v0.0.0-00010101000000-000000000000 // indirect
 )
