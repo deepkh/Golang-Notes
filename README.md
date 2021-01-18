@@ -675,10 +675,32 @@ func main() {
 
 -------------------------------------------------
 
-## [protobuf golang 範例](src/02_protobuffer/main/main.go)
+## [protobuf golang 範例](src/02_protobuffer/src/main.go)
+- [Doc for go generated Code](https://developers.google.com/protocol-buffers/docs/reference/go-generated)
 
 -------------------------------------------------
 
-## [protobuf C++ 範例](src/02_protobuffer/main/main.cc)
+## [protobuf C++ 範例](src/02_protobuffer/src/main.cc)
+- [Doc for C++ generated code](https://developers.google.com/protocol-buffers/docs/reference/cpp-generated)
 
+-------------------------------------------------
+
+
+## [gRPC](https://www.grpc.io/docs/what-is-grpc/introduction/)
+- [gRPC Error](https://github.com/avinassh/grpc-errors)
+- gRPC for C++
+	- [Quick Start](https://www.grpc.io/docs/languages/cpp/quickstart/)
+	- [Basic tutorial](https://www.grpc.io/docs/languages/cpp/basics/)
+	- [gRPC C++ 1.34.0 doxygen](https://grpc.github.io/grpc/cpp/pages.html)
+	- gRPCHelloWorld Example
+		- [grpchello.proto](src/03_grpchello/protos/grpchello.proto)
+		- [grpchelloclient_main.cc](src/03_grpchello/src/grpchelloclient_main.cc)
+		- [grpchellohello_main.cc](src/03_grpchello/src/grpchelloserver_main.cc)
+- gRPC for Go
+	- [Quick Start](https://www.grpc.io/docs/languages/go/quickstart/)
+	- [Basics tutorial](https://www.grpc.io/docs/languages/go/basics/)
+	-  gRPCHelloWorld Example
+		- [grpchello.proto](src/03_grpchello/protos/grpchello.proto)
+		- [grpchelloclient_main.go](src/03_grpchello/src/grpchelloclient_main.go)
+		- [grpchellohello_main.go](src/03_grpchello/src/grpchelloserver_main.go)
 

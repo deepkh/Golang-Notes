@@ -33,6 +33,10 @@ if [ -z "${HAVE_PROTOCGENGO}" ];then
 	export HAVE_PROTOCGENGO=1
 fi
 
+if [ -z "${HAVE_PROTOCGENGOGRPC}" ];then
+	export HAVE_PROTOCGENGOGRPC=1
+fi
+
 if [ -z "${HAVE_X8664W64MINGWDLLS}" ];then
 	if [[ "${TARGET}" == "win64" ]];then
 		export HAVE_X8664W64MINGWDLLS=1

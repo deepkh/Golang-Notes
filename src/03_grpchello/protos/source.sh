@@ -11,16 +11,27 @@
 # WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 # ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 # OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+#!/bin/bash
 
-SHELL=/bin/sh
-
-#################################### GOTUTORIAL
-GOTUTORIAL: $(EXTERNAL_PHONY) $(PROTOBUFFER_PHONY) $(GOHELLO_PHONY) $(GRPCHELLO_PHONY)
-	@echo MAKE $@
-
-GOTUTORIAL_DEV: $(PROTOBUFFER_PHONY_DEV) $(GOHELLO_PHONY_DEV) $(GRPCHELLO_PHONY_DEV)
-	@echo MAKE $@ 
-
-GOTUTORIAL_CLEAN: $(PROTOBUFFER_PHONY_CLEAN) $(GOHELLO_PHONY_CLEAN) $(GRPCHELLO_PHONY_CLEAN)
-	@echo MAKE $@
+if [ ! -z "$1" ]; then
+	unset PBGRPCHELLO_PHONY
+	unset PBGRPCHELLO_PHONY_CLEAN
+	if [ "${HAVE_PBGRPCHELLO}" = "1" ]; then
+		export PBGRPCHELLO_NAME="pbgrpchello"
+		export PBGRPCHELLO="$1"
+		export PBGRPCHELLO_OBJS_DIR=
+		export PBGRPCHELLO_CCGO="cc/grpchello.pb.cc \
+															cc/grpchello.grpc.pb.cc \
+															grpchello_grpc.pb.go"
+		export PBGRPCHELLO_CCGO_CLEAN="cc/grpchello.pb.cc_clean \
+															cc/grpchello.grpc.pb.cc_clean
+															grpchello_grpc.pb.go_clean"
+		export PBGRPCHELLO_PHONY="PBGRPCHELLO"
+		export PBGRPCHELLO_PHONY_DEV="PBGRPCHELLO_DEV"
+		export PBGRPCHELLO_PHONY_CLEAN="PBGRPCHELLO_CLEAN"
+		export PBGRPCHELLO_CFLAGS="-I${PBGRPCHELLO}/cc"
+		export PBGRPCHELLO_LDFLAGS=""
+		echo "PBGRPCHELLO=${PBGRPCHELLO}"
+	fi
+fi
 

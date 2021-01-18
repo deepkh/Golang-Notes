@@ -29,6 +29,7 @@ else
 	export HAVE_LIB_EXTERNAL=1
 	export HAVE_01_GOHELLO=1
 	export HAVE_02_PROTOBUFFER=1
+	export HAVE_03_GRPCHELLO=1
 
 	# load global env
 	source mk/source.sh
