@@ -30,11 +30,16 @@ import (
 )
 
 const (
-	address     = "localhost:50051"
+	defaultAddress     = "localhost:50051"
 	defaultName = "world"
 )
 
 func main() {
+	address := defaultAddress
+	if len(os.Args) > 1 {
+		address = os.Args[1]
+	}
+
 	// Set up a connection to the server.
 	conn, err := grpc.Dial(address, grpc.WithInsecure(), grpc.WithBlock())
 	if err != nil {
@@ -45,9 +50,6 @@ func main() {
 
 	// Contact the server and print out its response.
 	name := defaultName
-	if len(os.Args) > 1 {
-		name = os.Args[1]
-	}
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
 	r, err := c.SayHello(ctx, &protos.HelloRequest{Name: name})

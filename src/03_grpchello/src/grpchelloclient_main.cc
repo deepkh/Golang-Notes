@@ -21,36 +21,25 @@
 #include <string>
 #include <grpcpp/grpcpp.h>
 #include <grpchello.grpc.pb.h>
-using namespace std;
-using grpc::Channel;
-using grpc::ClientContext;
-using grpc::Status;
-using protos::HelloRequest;
-using protos::HelloReply;
-using protos::Greeter;
-
 
 class GreeterClient {
  public:
-  GreeterClient(std::shared_ptr<Channel> channel)
-      : stub_(Greeter::NewStub(channel)) {}
-
   // Assembles the client's payload, sends it and presents the response back
   // from the server.
-  std::string SayHello(const std::string& user) {
+  static std::string SayHello(std::shared_ptr<protos::Greeter::Stub> stub, const std::string& user) {
     // Data we are sending to the server.
-    HelloRequest request;
+    protos::HelloRequest request;
     request.set_name(user);
 
     // Container for the data we expect from the server.
-    HelloReply reply;
+    protos::HelloReply reply;
 
     // Context for the client. It could be used to convey extra information to
     // the server and/or tweak certain RPC behaviors.
-    ClientContext context;
+    grpc::ClientContext context;
 
     // The actual RPC.
-    Status status = stub_->SayHello(&context, request, &reply);
+    grpc::Status status = stub->SayHello(&context, request, &reply);
 
     // Act upon its status.
     if (status.ok()) {
@@ -61,43 +50,18 @@ class GreeterClient {
       return "RPC failed";
     }
   }
-
- private:
-  std::unique_ptr<Greeter::Stub> stub_;
 };
 
 int main(int argc, char** argv) {
-  // Instantiate the client. It requires a channel, out of which the actual RPCs
-  // are created. This channel models a connection to an endpoint specified by
-  // the argument "--target=" which is the only expected argument.
-  // We indicate that the channel isn't authenticated (use of
-  // InsecureChannelCredentials()).
-  std::string target_str;
-  std::string arg_str("--target");
-  if (argc > 1) {
-    std::string arg_val = argv[1];
-    size_t start_pos = arg_val.find(arg_str);
-    if (start_pos != std::string::npos) {
-      start_pos += arg_str.size();
-      if (arg_val[start_pos] == '=') {
-        target_str = arg_val.substr(start_pos + 1);
-      } else {
-        std::cout << "The only correct argument syntax is --target=" << std::endl;
-        return 0;
-      }
-    } else {
-      std::cout << "The only acceptable argument is --target=" << std::endl;
-      return 0;
-    }
-  } else {
-    target_str = "localhost:50051";
+  std::string target_str = "localhost:50051";
+  if (argc == 2) {
+    target_str = std::string(argv[1]);
   }
-  GreeterClient greeter(grpc::CreateChannel(
-      target_str, grpc::InsecureChannelCredentials()));
-  std::string user("world");
-  std::string reply = greeter.SayHello(user);
+  std::shared_ptr<grpc::Channel> channel = grpc::CreateChannel(
+      target_str, grpc::InsecureChannelCredentials());
+  std::shared_ptr<protos::Greeter::Stub> stub(protos::Greeter::NewStub(channel));
+  std::string reply = GreeterClient::SayHello(stub, std::string("deepkh"));
   std::cout << "Greeter received: " << reply << std::endl;
-
   return 0;
 }
 
