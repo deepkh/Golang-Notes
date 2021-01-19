@@ -19,18 +19,35 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <thread>         // std::this_thread::sleep_for
+#include <chrono>         // std::chrono::seconds
+#include <sstream>      // std::stringstream
 #include <grpcpp/grpcpp.h>
 #include <grpcpp/health_check_service_interface.h>
 #include <grpcpp/ext/proto_server_reflection_plugin.h>
 #include <grpchello.grpc.pb.h>
 
+static uint64_t get_current_threadid() {
+  std::stringstream ss;
+  ss << std::this_thread::get_id();
+  uint64_t id = std::stoull(ss.str());
+  return id;
+}
+
 // Logic and data behind the server's behavior.
 class GreeterServiceImpl final : public protos::Greeter::Service {
   grpc::Status SayHello(grpc::ServerContext* context, const protos::HelloRequest* request,
                   protos::HelloReply* reply) override {
+    static int count = 0;
     std::string prefix("Hello ");
     reply->set_message(prefix + request->name());
-    printf("Received: %s\n", request->name().c_str());
+    
+    //the results show that the thread id is different
+    //so dont worry about if this sleep would block other client
+    if (count++%2 == 0) {
+      std::this_thread::sleep_for(std::chrono::seconds(5));
+    }
+    printf("%lu Received: %s\n", get_current_threadid(), request->name().c_str());
     return grpc::Status::OK;
   }
 };
