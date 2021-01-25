@@ -25,6 +25,10 @@ fi
 #	export HAVE_LIB_PROTOBUF=1
 #fi
 
+if [ -z "${HAVE_GHCFILESYSTEM}" ];then
+	export HAVE_GHCFILESYSTEM=1
+fi
+
 if [ -z "${HAVE_GRPC}" ];then
 	export HAVE_GRPC=1
 fi

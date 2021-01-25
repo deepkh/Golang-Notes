@@ -11,27 +11,27 @@
 # WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 # ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 # OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+#!/bin/bash
 
 if [ ! -z "$1" ]; then
-	unset GOTUTORIAL 
-	unset GOTUTORIAL_PHONY 
-	unset GOTUTORIAL_PHONY_CLEAN
-
-	if [ "${HAVE_PRJ_GOTUTORIAL}" = "1" ]; then
-		export GOTUTORIAL="$1"
-		export GOTUTORIAL_PHONY="GOTUTORIAL"
-		export GOTUTORIAL_PHONY_CLEAN="GOTUTORIAL_CLEAN"
-    #export GOPATH=${GOTUTORIAL}
-		echo "GOTUTORIAL=${GOTUTORIAL}"
+	unset PBGRPCFTP_PHONY
+	unset PBGRPCFTP_PHONY_CLEAN
+	if [ "${HAVE_PBGRPCFTP}" = "1" ]; then
+		export PBGRPCFTP_NAME="pbgrpcftp"
+		export PBGRPCFTP="$1"
+		export PBGRPCFTP_OBJS_DIR=
+		export PBGRPCFTP_CCGO="cc/grpcftp.pb.cc \
+															cc/grpcftp.grpc.pb.cc \
+															grpcftp_grpc.pb.go"
+		export PBGRPCFTP_CCGO_CLEAN="cc/grpcftp.pb.cc_clean \
+															cc/grpcftp.grpc.pb.cc_clean
+															grpcftp_grpc.pb.go_clean"
+		export PBGRPCFTP_PHONY="PBGRPCFTP"
+		export PBGRPCFTP_PHONY_DEV="PBGRPCFTP_DEV"
+		export PBGRPCFTP_PHONY_CLEAN="PBGRPCFTP_CLEAN"
+		export PBGRPCFTP_CFLAGS="-I${PBGRPCFTP}/cc"
+		export PBGRPCFTP_LDFLAGS=""
+		echo "PBGRPCFTP=${PBGRPCFTP}"
 	fi
-else
-	export HAVE_PRJ_GOTUTORIAL=1
-	export HAVE_LIB_EXTERNAL=1
-	export HAVE_01_GOHELLO=1
-	export HAVE_02_PROTOBUFFER=1
-	export HAVE_03_GRPCHELLO=1
-	export HAVE_04_GRPCFTP=1
-
-	# load global env
-	source mk/source.sh
 fi
+
