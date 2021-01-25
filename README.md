@@ -704,7 +704,7 @@ func main() {
 	- [grpchelloclient_main.go](src/03_grpchello/src/grpchelloclient_main.go)
 	- [grpchellohello_main.go](src/03_grpchello/src/grpchelloserver_main.go)
 - gRPCFtp Example
-	- [grpcftp.proto](src/04_grpcftp/protos/grpchello.proto)
+	- [grpcftp.proto](src/04_grpcftp/protos/grpcftp.proto)
 	- [grpcftpclient_main.cc](src/04_grpcftp/src/grpcftpclient_main.cc)
 	- [grpcftpserver_main.cc](src/04_grpcftp/src/grpcftpserver_main.cc)
 	- [grpcftpclient_main.go](src/04_grpcftp/src/grpcftpclient_main.go)
