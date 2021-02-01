@@ -24,10 +24,8 @@
   * [gRPC](#grpc)
 	 * [gRPC tutorial for C++](#grpc-tutorial-for-c)
 	 * [gRPC tutorial for Go](#grpc-tutorial-for-go)
-	 * [gRPCHelloWorld Example](#grpchelloworld-example)
-	 * [gRPCFtp Example](#grpcftp-example)
-
-
+	 * [gRPCHelloWorld C++/Go Example](#grpchelloworld-cgo-example)
+	 * [gRPCFtp C++/Go Example](#grpcftp-cgo-example)
 
 -------------------------------------------------
 
@@ -733,7 +731,7 @@ func main() {
 
 -------------------------------------------------
 
-### gRPCHelloWorld Example
+### gRPCHelloWorld C++/Go Example
 - [grpchello.proto](src/03_grpchello/protos/grpchello.proto)
 - [grpchelloclient_main.cc](src/03_grpchello/src/grpchelloclient_main.cc)
 - [grpchellohello_main.cc](src/03_grpchello/src/grpchelloserver_main.cc)
@@ -742,7 +740,7 @@ func main() {
 
 -------------------------------------------------
 
-### gRPCFtp Example
+### gRPCFtp C++/Go Example
 - [grpcftp.proto](src/04_grpcftp/protos/grpcftp.proto)
 - [grpcftpclient_main.cc](src/04_grpcftp/src/grpcftpclient_main.cc)
 - [grpcftpserver_main.cc](src/04_grpcftp/src/grpcftpserver_main.cc)
