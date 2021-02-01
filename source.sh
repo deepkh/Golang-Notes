@@ -31,6 +31,7 @@ else
 	export HAVE_02_PROTOBUFFER=1
 	export HAVE_03_GRPCHELLO=1
 	export HAVE_04_GRPCFTP=1
+	export HAVE_05_GINWEBSER=1
 
 	# load global env
 	source mk/source.sh
