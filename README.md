@@ -22,6 +22,11 @@
 	 * [protobuf golang example](#protobuf-golang-example)
 	 * [protobuf C++ example](#protobuf-c-example)
   * [gRPC](#grpc)
+	 * [gRPC tutorial for C++](#grpc-tutorial-for-c)
+	 * [gRPC tutorial for Go](#grpc-tutorial-for-go)
+	 * [gRPCHelloWorld Example](#grpchelloworld-example)
+	 * [gRPCFtp Example](#grpcftp-example)
+
 
 
 -------------------------------------------------
@@ -710,34 +715,46 @@ func main() {
 
 ## [gRPC](https://www.grpc.io/docs/what-is-grpc/introduction/)
 - [Status codes and their use in gRPC](https://github.com/grpc/grpc/blob/master/doc/statuscodes.md)
-- gRPC tutorial for C++
-	- [Quick Start](https://www.grpc.io/docs/languages/cpp/quickstart/)
-	- [Basic tutorial](https://www.grpc.io/docs/languages/cpp/basics/)
-	- [gRPC C++ 1.34.0 doxygen](https://grpc.github.io/grpc/cpp/pages.html)
-	- grpc build 完自動也會將 protoc binarys 也一起 build 完，而不論要產生哪種語言的 protobuf code gen 或 grpc code gen，則都需要編譯 host 版的 c++ grpc binarys。他們都是以 grpc_cpp_plugin、grpc_python_plugin、protoc-gen-go、protoc-gen-go-grpc  ... 外掛型式去丟給 protoc。
-	- visual c++ 則可以從 vcpkg 去直接撈，而 mingw-w64 與 GCC 則可參考我的腳本 [libex/grpc/grpc_v1.34.0](https://github.com/deepkh/libex/blob/master/grpc/grpc_v1.34.0.sh)，需注意下，grpc 會先編譯 host 的 c++ grpc binarys 才會再編譯 runtime 的 grpc library，而 cmake 版本則需要 cmake-3.16.1 含以上，建議在 container 或  chroot 或 systemd-nspawn 的容器環境編譯。
-- gRPC tutorial for Go
-	- [Quick Start](https://www.grpc.io/docs/languages/go/quickstart/)
-	- [Basics tutorial](https://www.grpc.io/docs/languages/go/basics/)
-- gRPCHelloWorld Example
-	- [grpchello.proto](src/03_grpchello/protos/grpchello.proto)
-	- [grpchelloclient_main.cc](src/03_grpchello/src/grpchelloclient_main.cc)
-	- [grpchellohello_main.cc](src/03_grpchello/src/grpchelloserver_main.cc)
-	- [grpchelloclient_main.go](src/03_grpchello/src/grpchelloclient_main.go)
-	- [grpchellohello_main.go](src/03_grpchello/src/grpchelloserver_main.go)
-- gRPCFtp Example
-	- [grpcftp.proto](src/04_grpcftp/protos/grpcftp.proto)
-	- [grpcftpclient_main.cc](src/04_grpcftp/src/grpcftpclient_main.cc)
-	- [grpcftpserver_main.cc](src/04_grpcftp/src/grpcftpserver_main.cc)
-	- [grpcftpclient_main.go](src/04_grpcftp/src/grpcftpclient_main.go)
-	- [grpcftpserver_main.go](src/04_grpcftp/src/grpcftpserver_main.go)
-	- grpcftp.proto 實作了 grpc 的四種交互中的其中三種。第四種 request 與 response 都為 stream 目前尚未實現。
-		1. Hello: Request 與 Response 都非 stream 模式
-		2. List 與 Pull: Request 非 stream 模式 而 Reponse 為 stream 模式
-			1. List: 列出 client 所指定的 server 資料夾的檔案
-			2. Pull: 從 server 拉一個檔案，client 會下載檔案到 pull/ 
-		3. Push: Request 為 stream 模式而 Reponse 為非 stream 模式
-			1. Push: 推一個檔案到 server，server 會儲存檔案到 push/ 
+
+-------------------------------------------------
+
+### gRPC tutorial for C++
+- [Quick Start](https://www.grpc.io/docs/languages/cpp/quickstart/)
+- [Basic tutorial](https://www.grpc.io/docs/languages/cpp/basics/)
+- [gRPC C++ 1.34.0 doxygen](https://grpc.github.io/grpc/cpp/pages.html)
+- grpc build 完自動也會將 protoc binarys 也一起 build 完，而不論要產生哪種語言的 protobuf code gen 或 grpc code gen，則都需要編譯 host 版的 c++ grpc binarys。他們都是以 grpc_cpp_plugin、grpc_python_plugin、protoc-gen-go、protoc-gen-go-grpc  ... 外掛型式去丟給 protoc。
+- visual c++ 則可以從 vcpkg 去直接撈，而 mingw-w64 與 GCC 則可參考我的腳本 [libex/grpc/grpc_v1.34.0](https://github.com/deepkh/libex/blob/master/grpc/grpc_v1.34.0.sh)，需注意下，grpc 會先編譯 host 的 c++ grpc binarys 才會再編譯 runtime 的 grpc library，而 cmake 版本則需要 cmake-3.16.1 含以上，建議在 container 或  chroot 或 systemd-nspawn 的容器環境編譯。
+
+-------------------------------------------------
+
+### gRPC tutorial for Go
+- [Quick Start](https://www.grpc.io/docs/languages/go/quickstart/)
+- [Basics tutorial](https://www.grpc.io/docs/languages/go/basics/)
+
+-------------------------------------------------
+
+### gRPCHelloWorld Example
+- [grpchello.proto](src/03_grpchello/protos/grpchello.proto)
+- [grpchelloclient_main.cc](src/03_grpchello/src/grpchelloclient_main.cc)
+- [grpchellohello_main.cc](src/03_grpchello/src/grpchelloserver_main.cc)
+- [grpchelloclient_main.go](src/03_grpchello/src/grpchelloclient_main.go)
+- [grpchellohello_main.go](src/03_grpchello/src/grpchelloserver_main.go)
+
+-------------------------------------------------
+
+### gRPCFtp Example
+- [grpcftp.proto](src/04_grpcftp/protos/grpcftp.proto)
+- [grpcftpclient_main.cc](src/04_grpcftp/src/grpcftpclient_main.cc)
+- [grpcftpserver_main.cc](src/04_grpcftp/src/grpcftpserver_main.cc)
+- [grpcftpclient_main.go](src/04_grpcftp/src/grpcftpclient_main.go)
+- [grpcftpserver_main.go](src/04_grpcftp/src/grpcftpserver_main.go)
+- grpcftp.proto 實作了 grpc 的四種交互中的其中三種。第四種 request 與 response 都為 stream 目前尚未實現。
+	1. Hello: Request 與 Response 都非 stream 模式
+	2. List 與 Pull: Request 非 stream 模式 而 Reponse 為 stream 模式
+		1. List: 列出 client 所指定的 server 資料夾的檔案
+		2. Pull: 從 server 拉一個檔案，client 會下載檔案到 pull/ 
+	3. Push: Request 為 stream 模式而 Reponse 為非 stream 模式
+		1. Push: 推一個檔案到 server，server 會儲存檔案到 push/ 
 
 
 
