@@ -1,45 +1,44 @@
-## 目錄 
+## Index 
 
-  * [目錄](#\xE7\x9B\xAE\xE9\x8C\x84)
-  * [線上練習 go](#\xE7\xB7\x9A\xE4\xB8\x8A\xE7\xB7\xB4\xE7\xBF\x92-go)
-  * [參考文獻 (References)](#\xE5\x8F\x83\xE8\x80\x83\xE6\x96\x87\xE7\x8D\xBB-references)
-  * [基本型態(Basic Type)](#\xE5\x9F\xBA\xE6\x9C\xAC\xE5\x9E\x8B\xE6\x85\x8Bbasic-type)
-  * [條件敘述(if and switch)](#\xE6\xA2\x9D\xE4\xBB\xB6\xE6\x95\x98\xE8\xBF\xB0if-and-switch)
-  * [迴圈(for loop)](#\xE8\xBF\xB4\xE5\x9C\x88for-loop)
-  * [陣列 (Array) 和切片 (Slice)](#\xE9\x99\xA3\xE5\x88\x97-array-\xE5\x92\x8C\xE5\x88\x87\xE7\x89\x87-slice)
-  * [向量 (Vector) 和矩陣 (Matrix)](#\xE5\x90\x91\xE9\x87\x8F-vector-\xE5\x92\x8C\xE7\x9F\xA9\xE9\x99\xA3-matrix)
-  * [映射 (Map)](#\xE6\x98\xA0\xE5\xB0\x84-map)
-  * [結構(Struct)](#\xE7\xB5\x90\xE6\xA7\x8Bstruct)
-  * [指標(Pointer)](#\xE6\x8C\x87\xE6\xA8\x99pointer)
-  * [函式(Function)](#\xE5\x87\xBD\xE5\xBC\x8Ffunction)
-  * [類別 (Class) 和物件 (Object)](#\xE9\xA1\x9E\xE5\x88\xA5-class-\xE5\x92\x8C\xE7\x89\xA9\xE4\xBB\xB6-object)
-  * [介面 (Interface) 實踐繼承和多型](#\xE4\xBB\x8B\xE9\x9D\xA2-interface-\xE5\xAF\xA6\xE8\xB8\x90\xE7\xB9\xBC\xE6\x89\xBF\xE5\x92\x8C\xE5\xA4\x9A\xE5\x9E\x8B)
-  * [interface{} 變數](#interface-\xE8\xAE\x8A\xE6\x95\xB8)
-  * [函數式程式設計 (Functional Programming)](#\xE5\x87\xBD\xE6\x95\xB8\xE5\xBC\x8F\xE7\xA8\x8B\xE5\xBC\x8F\xE8\xA8\xAD\xE8\xA8\x88-functional-programming)
-  * [使用 Json Marshal/Unmarshal](#\xE4\xBD\xBF\xE7\x94\xA8-json-marshalunmarshal)
+  * [Golang playground](#golang-playground)
+  * [References](#references)
+  * [Basic Type](#basic-type)
+  * [if and switch](#if-and-switch)
+  * [for loop](#for-loop)
+  * [Array and Slice](#array-and-slice)
+  * [Vector and Matrix](#vector-and-matrix)
+  * [Map](#map)
+  * [Struct](#struct)
+  * [Pointer](#pointer)
+  * [Function](#function)
+  * [Class and Object](#class-and-object)
+  * [Interface](#interface)
+  * [interface{} variable](#interface-variable)
+  * [Functional Programming](#functional-programming)
+  * [Json Marshal/Unmarshal](#json-marshalunmarshal)
   * [Custom JSON Marshalling in Go](#custom-json-marshalling-in-go)
   * [Read/write from/to file](#readwrite-fromto-file)
   * [protobuf](#protobuf)
-  * [protobuf golang 範例](#protobuf-golang-\xE7\xAF\x84\xE4\xBE\x8B)
-  * [protobuf C++ 範例](#protobuf-c-\xE7\xAF\x84\xE4\xBE\x8B)
+	 * [protobuf golang example](#protobuf-golang-example)
+	 * [protobuf C++ example](#protobuf-c-example)
   * [gRPC](#grpc)
 
 
 -------------------------------------------------
 
-## 線上練習 go 
+## Golang playground 
  -> [Golang Playground](https://play.golang.org/)
 
 -------------------------------------------------
 
- ## 參考文獻 (References)
+ ## References
  - [官方Effective Go](https://golang.org/doc/effective_go.html)
  - [michaelchen golang 教學](https://michaelchen.tech/golang-programming/)
  - [Golang standard library](https://golang.org/pkg/)
  - [Go maps in action](https://blog.golang.org/maps)
 -------------------------------------------------
 
-## [基本型態(Basic Type)](https://michaelchen.tech/golang-programming/data-type/)
+## [Basic Type](https://michaelchen.tech/golang-programming/data-type/)
 - 布林值(真或假)：
 	- bool
 - 字串：
@@ -78,15 +77,15 @@
 
 -------------------------------------------------
 
-## [條件敘述(if and switch)](https://michaelchen.tech/golang-programming/selection/)
+## [if and switch](https://michaelchen.tech/golang-programming/selection/)
 
 -------------------------------------------------
 
-## [迴圈(for loop)](https://michaelchen.tech/golang-programming/iteration/)
+## [for loop](https://michaelchen.tech/golang-programming/iteration/)
 
 -------------------------------------------------
 
-## [陣列 (Array) 和切片 (Slice)](https://michaelchen.tech/golang-programming/array-slice/)
+## [Array and Slice](https://michaelchen.tech/golang-programming/array-slice/)
 
 ```golang
 package main
@@ -134,11 +133,11 @@ func main() {
 
 -------------------------------------------------
 
-## [向量 (Vector) 和矩陣 (Matrix)](https://michaelchen.tech/golang-cookbook/vector-matrix/)
+## [Vector and Matrix](https://michaelchen.tech/golang-cookbook/vector-matrix/)
 
 -------------------------------------------------
 
-## [映射 (Map)](https://michaelchen.tech/golang-programming/map/)
+## [Map](https://michaelchen.tech/golang-programming/map/)
 - 字串 key 與字串 value 的映射
 	```golang
 	package main
@@ -213,11 +212,11 @@ func main() {
 
 	```
 
-## [結構(Struct)](https://michaelchen.tech/golang-programming/struct/)
+## [Struct](https://michaelchen.tech/golang-programming/struct/)
 
 -------------------------------------------------
 
-## [指標(Pointer)](https://michaelchen.tech/golang-programming/pointer/)
+## [Pointer](https://michaelchen.tech/golang-programming/pointer/)
 - [Pass by pointer vs pass by value in Go](https://goinbigdata.com/golang-pass-by-pointer-vs-pass-by-value/)
 
 ```golang
@@ -250,7 +249,7 @@ func main() {
 
 -------------------------------------------------
 
-## [函式(Function)](https://michaelchen.tech/golang-programming/function/)
+## [Function](https://michaelchen.tech/golang-programming/function/)
 ```golang
 package main
 import "fmt"
@@ -291,7 +290,7 @@ func main() {
 
 -------------------------------------------------
 
-## [類別 (Class) 和物件 (Object)](https://michaelchen.tech/golang-programming/class-object/)
+## [Class and Object](https://michaelchen.tech/golang-programming/class-object/)
 - 物件最大的意途是抽象化與封裝，將重覆的程序、業務邏輯與附加邏輯隱藏在物件裡讓其他的物件可以重覆呼叫與使用。與函數不同點在於物件裡有成員變數(member variable)，並且物件有繼承可以延伸父類別的行為、介面提供附加邏輯的具體實作。
 - 但 Golang 並沒有提供繼承，只有介面。其原因為繼承會增加耦合的成本，無法在動態時期改變具現實例。
 
@@ -354,7 +353,7 @@ func main() {
 
 -------------------------------------------------
 
-## [介面 (Interface) 實踐繼承和多型](https://michaelchen.tech/golang-programming/interface/)
+## [Interface](https://michaelchen.tech/golang-programming/interface/)
 - 業務邏輯可以透過介面將附加邏輯給隔開，而實現達到開放封閉原則。最好的例子就是外掛(Plugin-In)。譬如 Foobar2000 音樂播放器的業務邏輯為
 	- 檔案讀取模組 (Source Reader) -> 解碼模組 (Decoder) ->  放音模組 (Audio Playback)
 - 業務邏輯的主要流程盡量不會變更，變更的為上述三個附加邏輯的模組，當模組化後面對需求，對程式碼的改動是透過增加新程式碼進行的，而不是更改現有的程式碼。檔案讀取模組可以是"檔案讀取"或"串流讀取"或未來的新模組，解碼模組可以是"MP3解碼模組"或"AAC解碼模組或未來的新模組。
@@ -491,7 +490,7 @@ func main() {
 
 -------------------------------------------------
 
-## interface{} 變數
+## interface{} variable
 - interface{} 與 golang interface 並不是同一件事， interface{} 類似於 C 語言裡的 void * 變數，用於承接任何指標類型的實例。
 
 ```golang
@@ -559,7 +558,7 @@ func main() {
 	
 -------------------------------------------------
 
-## 函數式程式設計 (Functional Programming)
+## Functional Programming
 - 閉包 (Closure)
 
 ```golang
@@ -604,7 +603,7 @@ func main() {
 
 -------------------------------------------------
 
-## 使用 Json Marshal/Unmarshal
+## Json Marshal/Unmarshal
 - 當成員有了 json tag 那麼第一個字元必須大寫代表 export
 
 ```golang
@@ -699,12 +698,12 @@ func main() {
 
 -------------------------------------------------
 
-## [protobuf golang 範例](src/02_protobuffer/src/main.go)
+### [protobuf golang example](src/02_protobuffer/src/main.go)
 - [Doc for go generated Code](https://developers.google.com/protocol-buffers/docs/reference/go-generated)
 
 -------------------------------------------------
 
-## [protobuf C++ 範例](src/02_protobuffer/src/main.cc)
+### [protobuf C++ example](src/02_protobuffer/src/main.cc)
 - [Doc for C++ generated code](https://developers.google.com/protocol-buffers/docs/reference/cpp-generated)
 
 -------------------------------------------------
