@@ -18,12 +18,21 @@ SHELL=/bin/sh
 
 include $(GOTUTORIAL)/${MAKEFILE_DEP}
 
-all: $(GOTUTORIAL_PHONY)
+define create_test_file
+	printf HI; \
+	head -c $(2) </dev/urandom > $(1); \
+	md5sum $(1) >> $(3).md5
+endef
 
-test: test_greetings
+all: $(GOTUTORIAL_PHONY) test_file/10M
 
-test_greetings:
-	cd src/greetings && $(GOTESTV) ./...
+test_file:
+	mkdir $@
+
+test_file/10M: test_file
+	$(call create_test_file,test_file/10M,10000000,test_file/md5sum)
+	$(call create_test_file,test_file/20M,20000000,test_file/md5sum)
+	$(call create_test_file,test_file/30M,30000000,test_file/md5sum)
 
 clean: $(GOTUTORIAL_PHONY_CLEAN) 
 
