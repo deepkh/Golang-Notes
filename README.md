@@ -774,5 +774,5 @@ HTTP  後端快速開發框架。可用閉包快速開發業務邏輯外，另�
 
 ## resty http client library
 透過閉包來快速開發 http 客戶端(原作者提及由 Ruby rest-client 啟發)
-- [src/05_ginwebser/src/main_test.go](src/05_ginwebser/src/main.go)
+- [src/05_ginwebser/src/main_test.go](src/05_ginwebser/src/main_test.go)
 
