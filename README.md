@@ -761,10 +761,16 @@ func main() {
 -------------------------------------------------
 
 ## gin web backend framework
-gin HTTP  後端快速開發框架。可用閉包快速開發業務邏輯外，另還提供  router、group (api 版本)、post 的 (form bind, json string bind)、query 的 string bind、server side rendering。
+HTTP  後端快速開發框架。可用閉包快速開發業務邏輯外，另還提供  router、middleware、group(可依 path 前綴字來分版本，如/v1/api、/v2/api)、form binding、query binding、server side rendering。
 - [https://github.com/gin-gonic/gin](https://github.com/gin-gonic/gin)
 - [# Golang 微框架 Gin 简介](https://www.jianshu.com/p/a31e4ee25305)
 
 ### Example
 - [src/05_ginwebser/src/main.go](src/05_ginwebser/src/main.go)
+
+-------------------------------------------------
+
+## resty http client library
+透過閉包來快速開發 http 客戶端(原作者提及由 Ruby rest-client 啟發)
+- [src/05_ginwebser/src/main_test.go](src/05_ginwebser/src/main.go)
 
