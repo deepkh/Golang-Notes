@@ -26,6 +26,9 @@
 	 * [gRPC tutorial for Go](#grpc-tutorial-for-go)
 	 * [gRPCHelloWorld C++/Go Example](#grpchelloworld-cgo-example)
 	 * [gRPCFtp C++/Go Example](#grpcftp-cgo-example)
+  * [gin web backend framework](#gin-web-backend-framework)
+	 * [Example](#example)
+
 
 -------------------------------------------------
 
@@ -757,9 +760,11 @@ func main() {
 
 -------------------------------------------------
 
-## gin web framework
-gin 框架可以處理後端
+## gin web backend framework
+gin HTTP  後端快速開發框架。可用閉包快速開發業務邏輯外，另還提供  router、group (api 版本)、post 的 (form bind, json string bind)、query 的 string bind、server side rendering。
 - [https://github.com/gin-gonic/gin](https://github.com/gin-gonic/gin)
 - [# Golang 微框架 Gin 简介](https://www.jianshu.com/p/a31e4ee25305)
 
+### Example
+- [src/05_ginwebser/src/main.go](src/05_ginwebser/src/main.go)
 
