@@ -47,3 +47,7 @@ if [ -z "${HAVE_X8664W64MINGWDLLS}" ];then
 	fi
 fi
 
+if [ -z "${HAVE_SWAGGERCODEGENCLI}" ];then
+	export HAVE_SWAGGERCODEGENCLI=1
+fi
+

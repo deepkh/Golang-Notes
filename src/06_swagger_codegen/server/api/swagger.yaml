@@ -1,0 +1,207 @@
+openapi: 3.0.0
+info:
+  title: Sample API
+  description: |
+    Production: http://api.example.com/v1
+
+    Staging: http://staging-api.example.com/v1
+  version: 0.1.9
+servers:
+- url: http://api.example.com/v1
+  description: Optional server description, e.g. Main (production) server
+- url: http://staging-api.example.com/v1
+  description: Optional server description, e.g. Internal staging server for testing
+paths:
+  /user/{userId}?sort={sort}:
+    get:
+      summary: Returns a user information by using userId
+      description: Returns a user information by using userId (description)
+      parameters:
+      - name: sort
+        in: query
+        description: |
+          Sort order:
+           * `asc` - Ascending, from A to Z
+           * `desc` - Descending, from Z to A
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+      - name: userId
+        in: path
+        description: Query the user information from User Id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      - name: X-Access-Token
+        in: header
+        description: Access Token which encoded by base64
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: uuid
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/user'
+      servers:
+      - url: http://test-api.example.com/v1
+        description: Override base path for all operations with the /files path
+  /user:
+    post:
+      summary: Creates a new user
+      description: Creates a new user description
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/user'
+        required: true
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/status'
+  /fileupload:
+    post:
+      summary: Upload a file
+      description: Upload a file description
+      parameters:
+      - name: Content-Disposition
+        in: header
+        description: attachment; filename="file_name"
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/status'
+  /formdataupload:
+    post:
+      summary: Upload by using "multipart/form-data"
+      description: Upload by using "multipart/form-data"  description
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/body'
+      responses:
+        "201":
+          description: Created
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Created
+                x-content-type: text/plain
+components:
+  schemas:
+    status:
+      type: object
+      properties:
+        status:
+          type: integer
+        message:
+          type: string
+      example:
+        message: message
+        status: 0
+    user:
+      type: object
+      properties:
+        userId:
+          type: integer
+        account:
+          type: string
+        name:
+          $ref: '#/components/schemas/user_name'
+        email:
+          type: string
+        location:
+          type: string
+        friends:
+          type: array
+          items:
+            $ref: '#/components/schemas/user_friends'
+      example:
+        name:
+          firstName: firstName
+          lastName: lastName
+        location: location
+        userId: 0
+        account: account
+        email: email
+        friends:
+        - name: null
+          location: location
+          userId: 6
+          account: account
+          email: email
+        - name: null
+          location: location
+          userId: 6
+          account: account
+          email: email
+    body:
+      type: object
+      properties:
+        orderId:
+          type: integer
+        userId:
+          type: integer
+        fileName:
+          type: string
+          format: binary
+    user_name:
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+      example:
+        firstName: firstName
+        lastName: lastName
+    user_friends:
+      properties:
+        userId:
+          type: integer
+        account:
+          type: string
+        name:
+          $ref: '#/components/schemas/user_name'
+        email:
+          type: string
+        location:
+          type: string
+      example:
+        name: null
+        location: location
+        userId: 6
+        account: account
+        email: email

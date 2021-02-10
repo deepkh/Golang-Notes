@@ -29,6 +29,15 @@
   * [gin web backend framework](#gin-web-backend-framework)
 	 * [Example](#example)
   * [resty http client library](#resty-http-client-library)
+	 * [Example](#example-1)
+  * [Swagger Codegen](#swagger-codegen)
+	 * [swagger-codegen cli install](#swagger-codegen-cli-install)
+	 * [Gen code for golang server](#gen-code-for-golang-server)
+	 * [Gen code for golang client](#gen-code-for-golang-client)
+	 * [Gen code for HTML2 docs](#gen-code-for-html2-docs)
+	 * [Examples](#examples)
+  * [Go Swagger](#go-swagger)
+
 
 
 
@@ -774,5 +783,56 @@ HTTP  後端快速開發框架。可用閉包快速開發業務邏輯外，另�
 
 ## resty http client library
 透過閉包來快速開發 http 客戶端(原作者提及由 Ruby rest-client 啟發)
+
+### Example
 - [src/05_ginwebser/src/main_test.go](src/05_ginwebser/src/main_test.go)
 
+
+## Swagger Codegen
+透過 OpenAPI 的定義檔(.json, .yaml) 去產生 API Docs與 Server Stub Code, Client SDK Code, HTML API Docs 的 [Swagger-Codegen](https://github.com/swagger-api/swagger-codegen)。
+
+### swagger-codegen cli install 
+```
+# Download current stable 3.x.x branch (OpenAPI version 3)
+wget https://repo1.maven.org/maven2/io/swagger/codegen/v3/swagger-codegen-cli/3.0.24/swagger-codegen-cli-3.0.24.jar -O swagger-codegen-cli.jar
+
+java -jar swagger-codegen-cli.jar --help
+```
+
+### Gen code for golang server
+```
+${SWAGGERCODEGENCLI_BIN} generate -l go-server -i openapi.yaml -o out_dir
+```
+
+### Gen code for golang client
+```
+${SWAGGERCODEGENCLI_BIN} generate -l go -i openapi.yaml -o out_dir
+```
+
+### Gen code for HTML2 docs
+```
+${SWAGGERCODEGENCLI_BIN} generate -l html2 -i openapi.yaml -o out_dir
+```
+
+### Examples
+
+下列 server, client, HTML 都由 openapi_3.0_test.yaml 定義檔並透過上面三串指令去產生。
+
+- [openapi_3.0_test.yaml](src/06_swagger_codegen/openapi/openapi_3.0_test.yaml)
+- [server](src/06_swagger_codegen/server)
+- [client](src/06_swagger_codegen/client)
+- [HTML API Docs](src/06_swagger_codegen/html2)
+
+Server 心得:
+- 從 webserver, route, services route 都幫你產生好了, services route 則留下空函式
+- Server 部份僅有原生 net/http 與 gorilla/mux router 並且沒有 gomod，如果已使用其它 原生框架習慣了，則會需要適應原生框架
+	> Most Go web "frameworks" are nonidiomatic and should probably be avoided for codegen purposes, including Gin. I would recommend plain `net/http` handlers + selected pieces from [https://github.com/gorilla](https://github.com/gorilla) as necessary; probably just [https://github.com/gorilla/mux](https://github.com/gorilla/mux) for routing is enough. from [peterbourgon commented on 26 May 2016](https://github.com/swagger-api/swagger-codegen/issues/2970#issuecomment-221770716)
+- 如果 openapi_3.0_test.yaml 更新後並重新執行指令，它會選擇覆蓋源碼而不是聰明的保留修改的部份
+- Client 部份產生的是 SDK [client.go](src/06_swagger_codegen/client/client.go) 並且沒有 main.go
+
+-------------------------------------------------
+
+## Go Swagger
+- [go-swagger](https://github.com/go-swagger/go-swagger)
+
+-------------------------------------------------

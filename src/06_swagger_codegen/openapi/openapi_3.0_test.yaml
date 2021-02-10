@@ -1,0 +1,172 @@
+openapi: 3.0.0
+info:
+  title: Sample API
+  description: > 
+                 Production: http://api.example.com/v1
+
+
+                 Staging: http://staging-api.example.com/v1
+  version: 0.1.9
+servers:
+  - url: http://api.example.com/v1
+    description: Optional server description, e.g. Main (production) server
+  - url: http://staging-api.example.com/v1
+    description: Optional server description, e.g. Internal staging server for testing
+paths:
+  /user/{userId}?sort={sort}:
+    get:
+      summary: Returns a user information by using userId
+      description: Returns a user information by using userId (description)
+      servers:
+        - url: http://test-api.example.com/v1
+          description: Override base path for all operations with the /files path
+      parameters:
+        - in: query
+          required: true
+          name: sort
+          schema:
+            type: string
+            enum: [asc, desc]
+          description: >
+            Sort order:
+             * `asc` - Ascending, from A to Z
+             * `desc` - Descending, from Z to A
+        - in: path
+          required: true
+          name: userId
+          type: integer
+          schema:
+            type: integer
+          description: Query the user information from User Id 
+        - in: header
+          required: true
+          name: X-Access-Token
+          schema:
+            type: string
+            format: uuid
+          description: Access Token which encoded by base64 
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/user'
+  /user:
+    post:
+      summary: Creates a new user 
+      description: Creates a new user description
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+                $ref: '#/components/schemas/user'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/status'
+
+  /fileupload:
+    post:
+      summary: Upload a file 
+      description: Upload a file description
+      requestBody:
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+      parameters:
+        - in: header
+          required: true
+          name: Content-Disposition
+          schema:
+            type: string
+          description: attachment; filename="file_name" 
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/status'
+
+  /formdataupload:
+    post:
+      summary: Upload by using "multipart/form-data" 
+      description: Upload by using "multipart/form-data"  description
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                orderId:
+                  type: integer
+                userId:
+                  type: integer
+                fileName:
+                  type: string
+                  format: binary
+      responses:
+        '201':
+          description: Created
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Created
+
+components:
+  schemas:
+    status:      # Object definition
+      type: object
+      properties:
+        status:
+          type: integer
+        message:
+          type: string
+    user:      # Object definition
+      type: object
+      properties:
+        userId:
+          type: integer
+        account:
+          type: string
+        name:
+          type: object
+          properties:
+            firstName:
+              type: string
+            lastName: 
+              type: string
+        email:
+          type: string
+        location: 
+          type: string
+        friends:
+          type: array
+          items:
+            properties:
+              userId:
+                type: integer
+              account:
+                type: string
+              name:
+                type: object
+                properties:
+                  firstName:
+                    type: string
+                  lastName: 
+                    type: string
+              email:
+                type: string
+              location: 
+                type: string
+
+
+
