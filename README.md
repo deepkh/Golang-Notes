@@ -837,6 +837,7 @@ ${SWAGGERCODEGENCLI_BIN} generate -l html2 -i openapi.yaml -o out_dir
 - [HTML API Docs](src/06_swagger_codegen/html2)
 
 心得:
+- OpenAPI 定義檔可透過 [Swagger Editor](http://editor.swagger.io/?_ga=2.207490132.690680557.1612839664-1829507373.1608976376) 在線編輯後後再儲存到 openapi_3.0_test.yaml
 - 從 webserver, route, services route 都幫你產生好了, services route 則留下空函式
 - 目前不會產生 go.mod，需手動適度修改
 - Server 部份僅有原生 net/http 與 gorilla/mux router，如果已使用其它 原生框架習慣了，則會需要適應原生框架
