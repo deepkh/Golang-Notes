@@ -838,12 +838,19 @@ ${SWAGGERCODEGENCLI_BIN} generate -l html2 -i openapi.yaml -o out_dir
 
 心得:
 - OpenAPI 定義檔可透過 [Swagger Editor](http://editor.swagger.io/?_ga=2.207490132.690680557.1612839664-1829507373.1608976376) 在線編輯後後再儲存到 openapi_3.0_test.yaml
-- 從 webserver, route, services route 都幫你產生好了, services route 則留下空函式
-- 目前不會產生 go.mod，需手動適度修改
-- Server 部份僅有原生 net/http 與 gorilla/mux router，如果已使用其它 原生框架習慣了，則會需要適應原生框架
-	> Most Go web "frameworks" are nonidiomatic and should probably be avoided for codegen purposes, including Gin. I would recommend plain `net/http` handlers + selected pieces from [https://github.com/gorilla](https://github.com/gorilla) as necessary; probably just [https://github.com/gorilla/mux](https://github.com/gorilla/mux) for routing is enough. from [peterbourgon commented on 26 May 2016](https://github.com/swagger-api/swagger-codegen/issues/2970#issuecomment-221770716)
 - 如果 openapi_3.0_test.yaml 更新後並重新執行指令，它會選擇覆蓋源碼而不是聰明的保留修改的部份
-- Client 部份產生的是 SDK [client.go](src/06_swagger_codegen/client/client.go) 並且沒有 main.go
+- Server
+	- 從 webserver, route, services routine 從上到下都串好了, 僅剩 services routine留下空函式
+	- Code 產生的還可以接受
+	- 沒有 go.mod，需手動適度修改
+	- 原生框架與 gorilla/mux router，如果已使用其它 原生框架習慣了，則會需要適應原生框架
+		> Most Go web "frameworks" are nonidiomatic and should probably be avoided for codegen purposes, including Gin. I would recommend plain `net/http` handlers + selected pieces from [https://github.com/gorilla](https://github.com/gorilla) as necessary; probably just [https://github.com/gorilla/mux](https://github.com/gorilla/mux) for routing is enough. from [peterbourgon commented on 26 May 2016](https://github.com/swagger-api/swagger-codegen/issues/2970#issuecomment-221770716)
+- Client
+	- 產生的是 SDK 
+	- 沒有 main.go，需手動適度修改
+	- 沒有 go.mod，需手動適度修改
+	- 原生框架
+	- Code 產生很大一包
 
 -------------------------------------------------
 
