@@ -39,8 +39,11 @@
 	 * [Gen code for HTML2 docs](#gen-code-for-html2-docs)
 	 * [Examples](#examples)
   * [Go Swagger](#go-swagger)
-
-
+	 * [Installation](#installation)
+	 * [Generate webserver code from swagger spec 2.0](#generate-webserver-code-from-swagger-spec-20)
+	 * [Cons](#Cons)
+	 * [Pros](#Pros)
+	 * [References](#references-2)
 
 
 
@@ -850,11 +853,39 @@ ${SWAGGERCODEGENCLI_BIN} generate -l html2 -i openapi.yaml -o out_dir
 	- 沒有 main.go，需手動適度修改
 	- 沒有 go.mod，需手動適度修改
 	- 原生框架
-	- Code 產生很大一包
+	- Code 產生的很大一包
 
 -------------------------------------------------
 
 ## Go Swagger
+Go swagger 可完成下列三個意圖，與 swagger-codegen 相比多了一個從已有的 code 產生 swagger spec 2.0 yaml。但由於 Generate webserver code 所產生的 Code 太過纍贅，所以稍微閱讀後就沒有再深入理解。
+- Generate webserver code from swagger spec 2.0: 通過 swagger spec 2.0 生成 webserver code 
+- Generate client code from swagger spec 2.0: 通過 swagger spec 2.0 生成 web client code
+- Generate spec from source code's comments: 通過源碼生成 swagger spec 2.0
+
+
+### Installation
+```
+wget https://github.com/go-swagger/go-swagger/releases/download/v0.26.1/swagger_linux_amd64 -O /usr/local/swagger && chmod +x /usr/local/swagger
+```
+
+### Generate webserver code from swagger spec 2.0
+- 撰寫 swagger spec 2.0 yaml -> 假設 test.yaml
+- 產生 server code -> `swagger generate server --target=./ --spec=test.yaml --name=hello`
+- services handler 需自行改寫，可參考
+	- [Server Usage](https://goswagger.io/generate/server.html) 
+	- [A swagger golang hello world](https://ops.tips/blog/a-swagger-golang-hello-world/) 
+	- [Examples](https://github.com/go-swagger/go-swagger/tree/master/examples)
+
+### Cons
+- [Server Usage](https://goswagger.io/generate/server.html) 架構複雜，[Examples](https://github.com/go-swagger/go-swagger/tree/master/examples) 大部份是 middleware.NotImplemented，並不是新手友善。[A swagger golang hello world](https://ops.tips/blog/a-swagger-golang-hello-world/)  則太舊
+- 目前僅支援 `swagger spec 2.0` ，swagger-codegen-cli 則支援 `swagger spec 2.0` 與 `OpenAPI 3.0`
+
+### Pros
+- 從 Code 註解產生  `swagger spec 2.0` 則不用遷就於 go-swagger 的 generate code 架構
+
+### References
 - [go-swagger](https://github.com/go-swagger/go-swagger)
+- [Docs](https://goswagger.io/)
 
 -------------------------------------------------

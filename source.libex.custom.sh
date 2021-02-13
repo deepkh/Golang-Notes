@@ -51,3 +51,6 @@ if [ -z "${HAVE_SWAGGERCODEGENCLI}" ];then
 	export HAVE_SWAGGERCODEGENCLI=1
 fi
 
+if [ -z "${HAVE_GOSWAGGERCLI}" ];then
+	export HAVE_GOSWAGGERCLI=1
+fi
