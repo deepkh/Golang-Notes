@@ -1,50 +1,51 @@
 ## Index 
 
-  * [Index](#index)
-  * [Golang playground](#golang-playground)
-  * [References](#references)
-  * [Basic Type](#basic-type)
-  * [if and switch](#if-and-switch)
-  * [for loop](#for-loop)
-  * [Array and Slice](#array-and-slice)
-  * [Vector and Matrix](#vector-and-matrix)
-  * [Map](#map)
-  * [Struct](#struct)
-  * [Pointer](#pointer)
-  * [Function](#function)
-  * [Class and Object](#class-and-object)
-  * [Interface](#interface)
-  * [interface{} variable](#interface-variable)
-  * [Functional Programming](#functional-programming)
-  * [Json Marshal/Unmarshal](#json-marshalunmarshal)
-  * [Custom JSON Marshalling in Go](#custom-json-marshalling-in-go)
-  * [Read/write from/to file](#readwrite-fromto-file)
-  * [protobuf](#protobuf)
-	 * [protobuf golang example](#protobuf-golang-example)
-	 * [protobuf C++ example](#protobuf-c-example)
-  * [gRPC](#grpc)
-	 * [gRPC tutorial for C++](#grpc-tutorial-for-c)
-	 * [gRPC tutorial for Go](#grpc-tutorial-for-go)
-	 * [gRPCHelloWorld C++/Go Example](#grpchelloworld-cgo-example)
-	 * [gRPCFtp C++/Go Example](#grpcftp-cgo-example)
-  * [gin web backend framework](#gin-web-backend-framework)
-	 * [Example](#example)
-  * [resty http client library](#resty-http-client-library)
-	 * [Example](#example-1)
-  * [Swagger Codegen](#swagger-codegen)
-	 * [References](#references-1)
-	 * [swagger-codegen cli install](#swagger-codegen-cli-install)
-	 * [Gen code for golang server](#gen-code-for-golang-server)
-	 * [Gen code for golang client](#gen-code-for-golang-client)
-	 * [Gen code for HTML2 docs](#gen-code-for-html2-docs)
-	 * [Examples](#examples)
-  * [Go Swagger](#go-swagger)
-	 * [Installation](#installation)
-	 * [Generate webserver code from swagger spec 2.0](#generate-webserver-code-from-swagger-spec-20)
-	 * [Cons](#Cons)
-	 * [Pros](#Pros)
-	 * [References](#references-2)
-
+      * [Index](#index)
+      * [Golang playground](#golang-playground)
+      * [References](#references)
+      * [Basic Type](#basic-type)
+      * [if and switch](#if-and-switch)
+      * [for loop](#for-loop)
+      * [Array and Slice](#array-and-slice)
+      * [Vector and Matrix](#vector-and-matrix)
+      * [Map](#map)
+      * [Struct](#struct)
+      * [Pointer](#pointer)
+      * [Function](#function)
+      * [Class and Object](#class-and-object)
+      * [Interface](#interface)
+      * [interface{} variable](#interface-variable)
+      * [Functional Programming](#functional-programming)
+      * [Json Marshal/Unmarshal](#json-marshalunmarshal)
+      * [Custom JSON Marshalling in Go](#custom-json-marshalling-in-go)
+      * [Read/write from/to file](#readwrite-fromto-file)
+      * [protobuf](#protobuf)
+         * [protobuf golang example](#protobuf-golang-example)
+         * [protobuf C++ example](#protobuf-c-example)
+      * [gRPC](#grpc)
+         * [gRPC tutorial for C++](#grpc-tutorial-for-c)
+         * [gRPC tutorial for Go](#grpc-tutorial-for-go)
+         * [gRPCHelloWorld C++/Go Example](#grpchelloworld-cgo-example)
+         * [gRPCFtp C++/Go Example](#grpcftp-cgo-example)
+      * [gin web backend framework](#gin-web-backend-framework)
+         * [Example](#example)
+      * [resty http client library](#resty-http-client-library)
+         * [Example](#example-1)
+      * [Swagger Codegen](#swagger-codegen)
+         * [References](#references-1)
+         * [swagger-codegen cli install](#swagger-codegen-cli-install)
+         * [Gen code for golang server](#gen-code-for-golang-server)
+         * [Gen code for golang client](#gen-code-for-golang-client)
+         * [Gen code for HTML2 docs](#gen-code-for-html2-docs)
+         * [Examples](#examples)
+      * [Go Swagger](#go-swagger)
+         * [Installation](#installation)
+         * [Generate webserver code from swagger spec 2.0](#generate-webserver-code-from-swagger-spec-20)
+         * [Cons](#cons)
+         * [Pros](#pros)
+         * [References](#references-2)
+      * [Go Kit](#go-kit)
+         * [Example: StringSvc1](#example-stringsvc1)
 
 
 -------------------------------------------------
@@ -878,7 +879,9 @@ wget https://github.com/go-swagger/go-swagger/releases/download/v0.26.1/swagger_
 	- [Examples](https://github.com/go-swagger/go-swagger/tree/master/examples)
 
 ### Cons
-- [Server Usage](https://goswagger.io/generate/server.html) 架構複雜，[Examples](https://github.com/go-swagger/go-swagger/tree/master/examples) 大部份是 middleware.NotImplemented，並不是新手友善。[A swagger golang hello world](https://ops.tips/blog/a-swagger-golang-hello-world/)  則太舊
+- [Server Usage](https://goswagger.io/generate/server.html) 框架複雜，需深入理解框架後才有辦法開發業務邏輯
+- 業務邏輯的實現需在 `configure_xxx.go`，但 `configure_xxx.go` 裡還包含其他不相關的設定，不符合開放封閉原則不利於長期維護
+- [A swagger golang hello world](https://ops.tips/blog/a-swagger-golang-hello-world/)  則太舊
 - 目前僅支援 `swagger spec 2.0` ，swagger-codegen-cli 則支援 `swagger spec 2.0` 與 `OpenAPI 3.0`
 
 ### Pros
@@ -887,5 +890,77 @@ wget https://github.com/go-swagger/go-swagger/releases/download/v0.26.1/swagger_
 ### References
 - [go-swagger](https://github.com/go-swagger/go-swagger)
 - [Docs](https://goswagger.io/)
+
+-------------------------------------------------
+## Go Kit
+
+gokit 的 http transport 實作是透過 [kit.http.NewServer](https://github.com/go-kit/kit/blob/master/transport/http/server.go#L27) 實作 [http.handler](https://golang.org/pkg/net/http/#Handler) 並加入客製化的:
+- [endpoint.Endpoint](https://github.com/go-kit/kit/blob/d9e46badbf75f459d391162b4f72abd9ac852511/endpoint/endpoint.go#L9)
+- [DecodeRequestFunc](https://github.com/go-kit/kit/blob/d9e46badbf75f459d391162b4f72abd9ac852511/transport/grpc/encode_decode.go#L11)
+- [EncodeResponseFunc](https://github.com/go-kit/kit/blob/d9e46badbf75f459d391162b4f72abd9ac852511/transport/http/encode_decode.go#L30)
+
+當 [kit.http.NewServer](https://github.com/go-kit/kit/blob/master/transport/http/server.go#L27) 初始化完後，再丟進原生 [http.Handler](https://golang.org/pkg/net/http/#Handler)，與 Gorilla Mux 一樣都是再包一層自己的  [http.Handler](https://golang.org/pkg/net/http/#Handler) ，如此就可讓實作 [http.Handler](https://golang.org/pkg/net/http/#Handler) 套件互相串在一起，受限於框架的層度較少。
+
+### Example: StringSvc1 
+- [src/07_gokitsamples/stringsvc1/main.go](src/07_gokitsamples/stringsvc1/main.go)
+
+以 /count 計算字數服務來說明
+
+1. 初始化  /count 的 httptransport.NewServer (http.Handler). 並帶入 `makeCountEndpoint(svc)` 、`decodeCountRequest` 與 `encodeResponse`
+2. 編譯 main.go 並執行 ./main
+3. 透過 ```curl -X POST -H "Content-Type: application/json" -d '{"S":"abc@gmail.com"}' http://localhost:8080/count``` 驗證
+4. 執行流程如下
+	1. decodeCountRequest
+	2. makeCountEndpoint 裡的閉包 (Closure) 
+	3. 最後是 encodeResponse 輸出
+
+```golang
+  svc := stringService{}
+
+  countHandler := httptransport.NewServer(
+    makeCountEndpoint(svc),
+    decodeCountRequest,
+    encodeResponse,
+  )
+ 
+  http.Handle("/count", countHandler)
+  log.Fatal(http.ListenAndServe(":8080", nil))
+```
+
+
+```golang
+func decodeCountRequest(_ context.Context, r *http.Request) (interface{}, error) {
+  var request countRequest
+  fmt.Printf("1. decodeCountRequest\n")
+  if err := json.NewDecoder(r.Body).Decode(&request); err != nil {
+    return nil, err
+  }
+  return request, nil
+}
+```
+
+```golang
+// Endpoints are a primary abstraction in go-kit. An endpoint represents a single RPC (method in our service interface)
+func makeCountEndpoint(svc StringService) endpoint.Endpoint {
+  return func(_ context.Context, request interface{}) (interface{}, error) {
+    fmt.Printf("2. makeCountEndpoint\n")
+    req := request.(countRequest)
+    v := svc.Count(req.S)
+    return &countResponse{v}, nil
+  }
+}
+```
+
+	
+```golang
+func encodeResponse(_ context.Context, w http.ResponseWriter, response interface{}) error {
+  v1, ok1 := response.(*uppercaseResponse)
+  v2, ok2 := response.(*countResponse)
+  fmt.Printf("3. encodeResponse v1:%+v ok1=%v v2:%+v ok2=%v\n", v1, ok1, v2, ok2)
+  return json.NewEncoder(w).Encode(response)
+}
+```
+
+
 
 -------------------------------------------------
