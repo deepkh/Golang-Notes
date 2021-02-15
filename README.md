@@ -46,6 +46,10 @@
 	 * [References](#references-2)
   * [Go Kit](#go-kit)
 	 * [Example: StringSvc1](#example-stringsvc1)
+	 * [gokit code generator](#gokit-code-generator)
+	 * [GrantZheng/kit](#grantzhengkit)
+	 * [gokit issues](#gokit-issues)
+
 
 
 -------------------------------------------------
@@ -961,6 +965,29 @@ func encodeResponse(_ context.Context, w http.ResponseWriter, response interface
 }
 ```
 
+### gokit code generator
 
+-   [go-kit/kit/cmd/kitgen](https://github.com/go-kit/kit/tree/master/cmd/kitgen)
+-   [kujtimiihoxha/kit](https://github.com/kujtimiihoxha/kit)
+-   [GrantZheng/kit](https://github.com/GrantZheng/kit)
+
+### GrantZheng/kit
+
+目前僅剩 [GrantZheng/kit](https://github.com/GrantZheng/kit) . 在 2020 年底尚有更新。可用下列命令去產生 code。
+
+```
+kit n s hello               # Create new service 
+kit g s hello              
+kit g s hello -t grpc
+kit g d                     # Create Docker file
+```
+
+
+### gokit issues
+
+1. kitgen 目前大多已沒更新
+2. kitgen 產生的 Code 龐大與 swagger-codegen-cli 相比並不好理解
+3. 需要同時支持 HTTP, GRPC ... 不同 Transport 的情況會是哪些? 
+4. kitgen 透過定義 service.go 檔來產生 server stubs code 是不錯，但並沒有 swagger-codegen-cli 透過 OpenAPI 3.0 定義的更細節. eg: 譬如沒有 GET/PUT/POST/DELETE 方法
 
 -------------------------------------------------
