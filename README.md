@@ -988,6 +988,12 @@ kit g d                     # Create Docker file
 1. kitgen 目前大多已沒更新
 2. kitgen 產生的 Code 龐大與 swagger-codegen-cli 相比並不好理解
 3. 需要同時支持 HTTP, GRPC ... 不同 Transport 的情況會是哪些? 
-4. kitgen 透過定義 service.go 檔來產生 server stubs code 是不錯，但並沒有 swagger-codegen-cli 透過 OpenAPI 3.0 定義的更細節. eg: 譬如沒有 GET/PUT/POST/DELETE 方法
+4. kitgen 透過定義 service.go 檔來產生 server stubs code 是不錯，但沒有 OpenAPI 3.0 來的標準. eg: 譬如沒有 GET/PUT/POST/DELETE 方法
 
 -------------------------------------------------
+
+## gin-swagger
+透過在源碼定義註解而產生 Swagger 2.0 Spec。
+
+- [declarative_comments_format](https://swaggo.github.io/swaggo.io/declarative_comments_format/)
+- [swag/example/celler/main.go](https://github.com/swaggo/swag/blob/master/example/celler/main.go)
